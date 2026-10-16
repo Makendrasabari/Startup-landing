@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stackly Dashboard — Routing...</title>
+  <script>
+    (function() {
+      try {
+        var user = JSON.parse(sessionStorage.getItem('stackly_user') || localStorage.getItem('stackly_user'));
+        if (user && user.role === 'engineer') {
+          window.location.replace('dashboard-engineer.html');
+          return;
+        }
+      } catch(e) {}
+      window.location.replace('dashboard-founder.html');
+    })();
+  </script>
+</head>
+<body style="background:#ffffff; color:#090d16; font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh;">
+  <p>Loading your Stackly workspace...</p>
+</body>
+</html>

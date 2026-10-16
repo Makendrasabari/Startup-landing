@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Support — Stackly Cloud</title>
+  <meta name="description" content="Connect with Stackly's infrastructure architects and executive support team. 24/7/365 dedicated escalation.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets (Cache Busted) -->
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <!-- Lenis Smooth Scrolling Engine -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js?v=5.2" defer></script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrap">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="preloader-logo-img">
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <span class="preloader-tagline">Loading Contact Gateway...</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="topHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="brand-logo">
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary btn-sm btn-desktop">Log In</a>
+        <button class="mobile-toggle" aria-label="Toggle mobile menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="mobile-nav" id="mobileNavMenu" aria-hidden="true">
+    <div class="mobile-nav-topbar">
+      <a href="index.html" class="mobile-nav-brand" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="contact.html" class="mobile-nav-link active">Contact</a>
+      </div>
+      <a href="login.html" class="btn btn-primary btn-lg mobile-nav-cta">
+        <span>Log In to Stackly</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Page Hero with Architectural High-Rise Headquarters Background Image (NO white box, centered content) -->
+    <section class="page-hero page-hero-contact">
+      <div class="container">
+        <div class="page-hero-clean-center text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Connect With Us</span>
+          </div>
+          <h1 class="page-hero-title">
+            Let's discuss your startup's <br><span class="highlight-text">cloud scalability requirements.</span>
+          </h1>
+          <p class="page-hero-desc">
+            Speak with a principal cloud architect or request custom enterprise onboarding. We respond to all technical inquiries in under 2 hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left Details & Global Headquarters Support -->
+          <div id="headquarters">
+            <div class="section-label">
+              <span class="dot"></span>
+              <span>Direct Channels</span>
+            </div>
+            <h2 class="section-title" id="contactHqTitle">
+              Global Headquarters & Support
+            </h2>
+            <p id="contactHqDesc" style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+              Our systems engineering escalation team operates 24/7/365 across three continents with dedicated SLA monitoring.
+            </p>
+
+            <div class="contact-channels-wrap" id="contactChannelsWrap" style="margin-top: 0; margin-bottom: 2rem;">
+              <!-- Email Inquiries Card (Comes from Left) -->
+              <div class="contact-info-card channel-card-left" id="contactEmailCard">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="contact-details">
+                  <h4>Email Inquiries</h4>
+                  <p>founders@stackly.io &middot; engineering@stackly.io</p>
+                  <span class="channel-status-tag"><span class="pulse-dot"></span> P99 Reply &lt; 45m</span>
+                </div>
+              </div>
+
+              <!-- Live Support SLA Card (Comes from Right) -->
+              <div class="contact-info-card channel-card-right" id="contactLiveCard">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div class="contact-details">
+                  <h4>Live Support SLA</h4>
+                  <p>Guaranteed 15-minute response for critical production tiers</p>
+                  <span class="channel-status-tag"><span class="pulse-dot green"></span> 24/7 Dedicated Bridge Active</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Global Operations & Escalation SLA Matrix (Replaces Small Map) -->
+            <div class="contact-ops-panel" id="contactOpsPanel">
+              <div class="ops-panel-header">
+                <div class="ops-header-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div>
+                  <h4 class="ops-panel-title">Tier-1 Engineering Escalation Protocol</h4>
+                  <p class="ops-panel-subtitle">Multi-region SRE dispatch and direct architect channels</p>
+                </div>
+              </div>
+
+              <div class="ops-regions-grid">
+                <div class="ops-region-item">
+                  <div class="ops-region-badge">US-WEST</div>
+                  <div>
+                    <div class="ops-region-city">San Francisco HQ</div>
+                    <div class="ops-region-detail">Core Platform & Distributed Systems R&D</div>
+                  </div>
+                  <div class="ops-region-ping">
+                    <span class="dot-online"></span> 12ms
+                  </div>
+                </div>
+
+                <div class="ops-region-item">
+                  <div class="ops-region-badge">EU-CENTRAL</div>
+                  <div>
+                    <div class="ops-region-city">London Engineering Hub</div>
+                    <div class="ops-region-detail">High-Throughput Telemetry & SOC 2 Security</div>
+                  </div>
+                  <div class="ops-region-ping">
+                    <span class="dot-online"></span> 19ms
+                  </div>
+                </div>
+
+                <div class="ops-region-item">
+                  <div class="ops-region-badge">AP-SOUTHEAST</div>
+                  <div>
+                    <div class="ops-region-city">Singapore Edge Operations</div>
+                    <div class="ops-region-detail">Edge Mesh Routing & 24/7 Production Watch</div>
+                  </div>
+                  <div class="ops-region-ping">
+                    <span class="dot-online"></span> 24ms
+                  </div>
+                </div>
+              </div>
+
+              <div class="ops-panel-footer">
+                <div class="ops-cert-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>SOC 2 Type II Certified</span>
+                </div>
+                <div class="ops-cert-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>ISO 27001 Audited</span>
+                </div>
+                <div class="ops-cert-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>99.999% SLA Uptime</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Contact Form Card -->
+          <div class="contact-form-card">
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Send a Priority Message</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem;">
+              Fill in your details below and a member of our architecture team will get back to you shortly.
+            </p>
+
+            <form id="contactForm" autocomplete="off" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contactName">Full Name *</label>
+                  <input type="text" id="contactName" class="form-control" placeholder="Marcus Vance" autocomplete="off" required>
+                  <span class="form-error-msg">Please enter your full name.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactEmail">Work Email *</label>
+                  <input type="email" id="contactEmail" class="form-control" placeholder="marcus@company.com" autocomplete="off" required>
+                  <span class="form-error-msg" id="contactEmailError">Please enter the email</span>
+                </div>
+              </div>
+
+              <!-- Custom Dropdown 1: Primary Architecture Need -->
+              <div class="form-group">
+                <label class="form-label">Primary Architecture Need</label>
+                <div class="custom-select-wrapper" id="interestSelectWrapper">
+                  <input type="hidden" id="contactInterestInput" name="contactInterest" value="multi-cloud">
+                  <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false" id="interestTrigger">
+                    <span class="custom-select-selected-value">Autonomous Multi-Cloud Kubernetes Orchestration</span>
+                    <span class="custom-select-arrow">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                  </button>
+                  <ul class="custom-select-dropdown" role="listbox" tabindex="-1">
+                    <li class="custom-select-option is-selected" data-value="multi-cloud" role="option" aria-selected="true">
+                      <span class="option-label">Autonomous Multi-Cloud Kubernetes Orchestration</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                    <li class="custom-select-option" data-value="apm" role="option" aria-selected="false">
+                      <span class="option-label">Real-Time APM Distributed Telemetry</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                    <li class="custom-select-option" data-value="revenue" role="option" aria-selected="false">
+                      <span class="option-label">Executive Revenue & Runway Intelligence</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                    <li class="custom-select-option" data-value="security" role="option" aria-selected="false">
+                      <span class="option-label">Enterprise Zero-Trust & SOC2 Compliance</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                    <li class="custom-select-option" data-value="custom" role="option" aria-selected="false">
+                      <span class="option-label">Custom Scale Consultation</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Custom Dropdown 2: Current Monthly Cloud Spend -->
+              <div class="form-group">
+                <label class="form-label">Current Monthly Cloud Spend</label>
+                <div class="custom-select-wrapper" id="spendSelectWrapper">
+                  <input type="hidden" id="contactPodsInput" name="contactPods" value="seed">
+                  <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false" id="spendTrigger">
+                    <span class="custom-select-selected-value">&lt; $5,000 / month (Seed)</span>
+                    <span class="custom-select-arrow">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </span>
+                  </button>
+                  <ul class="custom-select-dropdown" role="listbox" tabindex="-1">
+                    <li class="custom-select-option is-selected" data-value="seed" role="option" aria-selected="true">
+                      <span class="option-label">&lt; $5,000 / month (Seed)</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                    <li class="custom-select-option" data-value="growth" role="option" aria-selected="false">
+                      <span class="option-label">$5,000 - $25,000 / month (Series A)</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                    <li class="custom-select-option" data-value="scale" role="option" aria-selected="false">
+                      <span class="option-label">$25,000 - $100,000+ / month (Series B/C)</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                    <li class="custom-select-option" data-value="enterprise" role="option" aria-selected="false">
+                      <span class="option-label">$100,000+ / month (Enterprise Scale)</span>
+                      <span class="option-check">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactMessage">Message / Cloud Specs *</label>
+                <textarea id="contactMessage" class="form-control" placeholder="Tell us about your current stack, pain points, or migration timeline..." autocomplete="off" required></textarea>
+                <span class="form-error-msg">Please write at least 10 characters.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                <span>Submit Priority Request</span>
+                <span class="btn-icon-right">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STACKLY CAMPUS & GLOBAL MAP SECTION (Click Map Directly to Navigate in Chrome)
+         ========================================================================== -->
+    <section class="stackly-map-full-section" style="padding: 5rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); overflow-x: clip;">
+      <div class="container">
+        <div class="text-center center-block" style="margin-bottom: 2.5rem;">
+          <div class="section-label"><span class="dot"></span> Stackly Map</div>
+          <h2 class="section-title" id="visitMapTitle">Visit Our Engineering Center</h2>
+          <p class="section-subtitle center-block" id="visitMapSubtitle" style="margin-bottom: 1.5rem;">Located in the heart of San Francisco's technology district. Click anywhere on the map to open in Google Maps and get real-time directions.</p>
+        </div>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=500+Howard+Street+San+Francisco+CA+94105" target="_blank" rel="noopener noreferrer" class="campus-map-interactive-card" title="Click anywhere on the map to navigate in Google Maps">
+          <div style="position: relative; height: 380px; width: 100%; background: #ffffff;">
+            <iframe 
+              src="https://maps.google.com/maps?q=500+Howard+Street,+San+Francisco,+CA+94105&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0; pointer-events: none;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Stackly San Francisco Engineering Campus Map">
+            </iframe>
+            <!-- Click Overlay -->
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.02); transition: background 0.25s;" onmouseover="this.style.background='rgba(140, 79, 39, 0.08)'" onmouseout="this.style.background='rgba(0,0,0,0.02)'">
+              <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; background: #ffffff; padding: 1rem 1.4rem; border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 42px; height: 42px; border-radius: 8px; background: #FAF5F0; display: flex; align-items: center; justify-content: center; color: #8C4F27;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <div style="font-weight: 800; font-size: 0.95rem; color: #090d16;">Stackly Inc. Headquarters</div>
+                  <div style="font-size: 0.82rem; color: #64748b;">500 Howard St, Suite 400, San Francisco &bull; Click anywhere to open Google Maps</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section (5 Alternating Left/Right Animated FAQs) -->
+    <section class="contact-faq-section" style="padding: 6rem 0; background: #ffffff; overflow-x: clip;">
+      <div class="container" style="max-width: 860px;">
+        <div class="text-center center-block" style="margin-bottom: 3rem;">
+          <div class="section-label"><span class="dot"></span> FAQ</div>
+          <h2 class="section-title" id="faqSectionTitle">Frequently Asked Questions</h2>
+          <p class="section-subtitle center-block" id="faqSectionSubtitle">Common questions about migrating your startup infrastructure to Stackly.</p>
+        </div>
+
+        <div class="faq-accordion-list">
+          <!-- FAQ 1: From Right -->
+          <details class="faq-item faq-from-right">
+            <summary>How quickly can we migrate from AWS or GCP to Stackly?</summary>
+            <p>
+              Most seed to Series A startups complete migration within 48 hours using our automated cluster import CLI. We support live traffic mirroring so you can validate performance before cutting over DNS.
+            </p>
+          </details>
+
+          <!-- FAQ 2: From Left -->
+          <details class="faq-item faq-from-left">
+            <summary>Does Stackly support SOC2 Type II compliance out of the box?</summary>
+            <p>
+              Yes. Stackly enforces mutual TLS 1.3 encryption across all internal services, automated key rotation, and continuous compliance audit logging. We provide pre-audited evidence packages for auditors.
+            </p>
+          </details>
+
+          <!-- FAQ 3: From Right -->
+          <details class="faq-item faq-from-right">
+            <summary>Can both our Founders and DevOps engineers use separate views?</summary>
+            <p>
+              Absolutely. Stackly provides dedicated role portals: an Executive View focused on ARR, unit margins, and runway; and a DevOps Command Center focused on Kubernetes pods, API latency, and CI/CD rollouts.
+            </p>
+          </details>
+
+          <!-- FAQ 4: From Left -->
+          <details class="faq-item faq-from-left">
+            <summary>What SLA uptime guarantees and credit compensation do you offer?</summary>
+            <p>
+              We guarantee a 99.999% high-availability uptime SLA across all production clusters. If availability drops below this threshold in any billing cycle, you receive automated pro-rated service credits applied directly to your monthly invoice.
+            </p>
+          </details>
+
+          <!-- FAQ 5: From Right -->
+          <details class="faq-item faq-from-right">
+            <summary>How does Stackly pricing scale as our monthly active telemetry spikes?</summary>
+            <p>
+              Unlike legacy APM providers that penalize traffic surges with punitive overage fees, Stackly features predictable flat-rate node billing with intelligent adaptive sampling, eliminating surprise month-end cloud bills.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly Home">
+            <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="footer-logo">
+          </a>
+          <p class="footer-caption">
+            The next-generation cloud infrastructure and growth intelligence platform for high-velocity startups.
+          </p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="X (Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="blog.html" class="footer-link">Blog & Insights</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Leadership</a></li>
+            <li><a href="404.html" class="footer-link">Careers</a></li>
+            <li><a href="404.html" class="footer-link">Headquarters</a></li>
+            <li><a href="404.html" class="footer-link">SOC2 Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Stackly Address & Office Details (Replaced Stay Updated) -->
+        <div>
+          <h4 class="footer-col-title">Stackly Headquarters</h4>
+          <div class="footer-address-block">
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>San Francisco HQ</strong><br>
+                500 Howard Street, Suite 400<br>
+                San Francisco, CA 94105
+              </div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div>founders@stackly.io &middot; contact@stackly.io</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div>+1 (415) 890-4820 (24/7 SLA)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Inc. All rights reserved.</div>
+        <div class="system-status-badge">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+          <span>All Global Systems Operational</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly — Modern Cloud Infrastructure & Intelligence Platform</title>
+  <meta name="description" content="Scale your startup faster with Stackly. Autonomous cloud orchestration, real-time APM telemetry, and executive revenue intelligence.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets (Cache Busted) -->
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <!-- Critical Hero Clarity & Crossfade Transition Overrides -->
+  <style>
+    .hero-section {
+      background-color: #030712 !important;
+    }
+    .hero-bg-slider {
+      background-color: #030712 !important;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-bg-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: contrast(1.12) brightness(1.02) saturate(1.18);
+      transform: scale(1.02);
+      pointer-events: none;
+      will-change: opacity;
+    }
+    .hero-bg-slide.active {
+      opacity: 1 !important;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(3, 7, 18, 0.35) 0%, rgba(3, 7, 18, 0.15) 40%, rgba(3, 7, 18, 0.50) 100%) !important;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-container-rel {
+      position: relative;
+      z-index: 3;
+    }
+    .hero-title {
+      color: #ffffff !important;
+      text-shadow: 0 2px 22px rgba(0, 0, 0, 0.95), 0 4px 44px rgba(0, 0, 0, 0.98), 0 1px 3px rgba(0, 0, 0, 1) !important;
+    }
+    .hero-title span.highlight-text,
+    .hero-title span.highlight-text .char-slide-right {
+      color: #df9b6d !important;
+      -webkit-text-fill-color: #df9b6d !important;
+      background: none !important;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 16px rgba(140, 79, 39, 0.55)) !important;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.98), 0 4px 38px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 1) !important;
+    }
+    .hero-description {
+      color: #f1f5f9 !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+    }
+    .hero-trust {
+      color: #f8fafc !important;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9) !important;
+    }
+  </style>
+
+  <!-- Lenis Smooth Scrolling Engine -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- Main JavaScript Controller -->
+  <script src="js/main.js?v=5.2" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       PRELOADER (Clean White with prominent Stackly Logo)
+       ========================================================================== -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrap">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="preloader-logo-img">
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <span class="preloader-tagline">Initializing Stackly Core...</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       Order: Home, About, Services, Blog, Contact + Brown Log In Button
+       ========================================================================== -->
+  <header class="site-header" id="topHeader">
+    <div class="container nav-container">
+      <!-- Prominent Transparent Stackly Logo -->
+      <a href="index.html" class="brand-link" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="brand-logo">
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary btn-sm btn-desktop">Log In</a>
+
+
+        <!-- Mobile Hamburger Button -->
+        <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="mobile-nav" id="mobileNavMenu" aria-hidden="true">
+    <div class="mobile-nav-topbar">
+      <a href="index.html" class="mobile-nav-brand" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link active">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </div>
+      <a href="login.html" class="btn btn-primary btn-lg mobile-nav-cta">
+        <span>Log In to Stackly</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION (Clean White Background with Brown Button CTAs)
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <!-- 5 High-Definition, Crystal-Clear Background Images (Rotates continuously every 2 seconds) -->
+      <div class="hero-bg-slider" id="heroBgSlider">
+        <div class="hero-bg-slide active" style="background-image: url('assets/hero_slide_1.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/hero_slide_2.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/hero_slide_3.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/hero_slide_4.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/hero_slide_5.webp');"></div>
+      </div>
+      <!-- Subtle dark contrast overlay (Leaves images 100% visible & vibrant, NO white shade or fog) -->
+      <div class="hero-bg-overlay"></div>
+
+      <div class="container hero-container-rel">
+        <!-- Clean Hero Typography Directly at Center (No White Card Box) -->
+        <div class="hero-content-clean">
+          <!-- Main Headline -->
+          <h1 class="hero-title" id="heroTitle">
+            Scale your startup faster with <br><span class="highlight-text">intelligent cloud control.</span>
+          </h1>
+
+          <!-- Description -->
+          <p class="hero-description" id="heroDesc">
+            Stackly unifies autonomous Kubernetes orchestration, sub-millisecond edge telemetry, and executive revenue analytics into one ultra-refined, high-velocity platform.
+          </p>
+
+          <!-- CTAs: Brown button with white text -->
+          <div class="hero-cta-group">
+            <a href="404.html" class="btn btn-primary btn-lg">
+              <span>Start 14-Day Free Trial</span>
+              <span class="btn-icon-right">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+            <a href="404.html" class="btn btn-secondary btn-lg">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              <span>Explore Services</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>SOC2 Type II Certified</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>99.999% SLA Guaranteed</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>No Credit Card Required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CLIENTS / BRAND TICKER
+         ========================================================================== -->
+    <section class="clients-section" aria-label="Trusted Companies">
+      <div class="container">
+        <p class="clients-heading">Trusted by leading technical founders & engineering teams</p>
+      </div>
+      <div class="ticker-wrap">
+        <div class="ticker-track">
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697.4 12.33.4 6.77.4 3.018 3.328 3.018 8.013c0 4.57 3.535 6.002 6.84 7.227 2.457.912 3.284 1.56 3.284 2.508 0 .977-.858 1.487-2.348 1.487-2.15 0-4.992-1.077-6.945-2.193l-.934 5.688c2.27 1.096 5.518 1.67 8.784 1.67 5.86 0 9.878-2.827 9.878-7.79 0-4.88-3.69-6.274-7.601-7.46z"/></svg><span>STRIPE</span></div>
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg><span>VERCEL</span></div>
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>SUPABASE</span></div>
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/></svg><span>RAYCAST</span></div>
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>GITHUB</span></div>
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 12a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/></svg><span>LINEAR</span></div>
+          <!-- Loop items -->
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697.4 12.33.4 6.77.4 3.018 3.328 3.018 8.013c0 4.57 3.535 6.002 6.84 7.227 2.457.912 3.284 1.56 3.284 2.508 0 .977-.858 1.487-2.348 1.487-2.15 0-4.992-1.077-6.945-2.193l-.934 5.688c2.27 1.096 5.518 1.67 8.784 1.67 5.86 0 9.878-2.827 9.878-7.79 0-4.88-3.69-6.274-7.601-7.46z"/></svg><span>STRIPE</span></div>
+          <div class="ticker-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg><span>VERCEL</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT TEASER SECTION (WITH RICH TEAM COLLABORATION IMAGE)
+         ========================================================================== -->
+    <section class="about-section" id="about-teaser">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <div class="section-label">
+              <span class="dot"></span>
+              <span>About Stackly</span>
+            </div>
+            <h2 class="section-title">
+              Engineered for velocity. <br><span class="highlight-text">Zero infrastructure bottlenecks.</span>
+            </h2>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">
+              We built Stackly because modern startups shouldn't spend months wrestling with Kubernetes YAML, fragmented observability dashboards, and disconnected revenue metrics.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem;">
+              <div class="about-feature-item" style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="width: 36px; height: 36px; border-radius: 8px; background: #000000; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 700;">✓</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Unified Business & Tech Telemetry</h4>
+                  <p style="font-size: 0.9rem; color: var(--text-secondary);">Combine real-time pod health with ARR expansion curves in one single source of truth.</p>
+                </div>
+              </div>
+
+              <div class="about-feature-item" style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="width: 36px; height: 36px; border-radius: 8px; background: #000000; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 700;">✓</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Zero-Downtime Blue/Green Rollouts</h4>
+                  <p style="font-size: 0.9rem; color: var(--text-secondary);">Push commits directly to global edge clusters with automated canary rollbacks.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="404.html" class="btn btn-primary">
+              <span>Read Full Story & Mission</span>
+            </a>
+          </div>
+
+          <!-- Rich Collaborative Image Card with Diagonal Split & Join Animation -->
+          <div class="about-image-card">
+            <div class="diagonal-split-container" id="diagonalSplitBox">
+              <!-- Top-Left Diagonal Half -->
+              <div class="diagonal-half diagonal-half-top">
+                <img src="assets/about_team.webp" alt="Stackly Engineering Team" class="about-img">
+              </div>
+              <!-- Diagonal Seam Glow Divider -->
+              <div class="diagonal-split-seam"></div>
+              <!-- Bottom-Right Diagonal Half -->
+              <div class="diagonal-half diagonal-half-bottom">
+                <img src="assets/about_team.webp" alt="Stackly Engineering Team" class="about-img">
+              </div>
+            </div>
+            
+            <div class="about-floating-card">
+              <div class="about-stat-row">
+                <div class="about-stat-col">
+                  <h3 id="statStartups">2,400+</h3>
+                  <p>Startups Scaled</p>
+                </div>
+                <div class="about-stat-col">
+                  <h3 id="statSla">99.999%</h3>
+                  <p>Guaranteed SLA</p>
+                </div>
+                <div class="about-stat-col">
+                  <h3 id="statLatency">&lt;18ms</h3>
+                  <p>Edge Latency</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES SECTION (EACH CARD HAS ITS OWN RICH IMAGE)
+         ========================================================================== -->
+    <section class="services-section" id="services-teaser">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Services & Solutions</span>
+          </div>
+          <h2 class="section-title">
+            Built for scale. <span class="highlight-text">Engineered for perfection.</span>
+          </h2>
+          <p class="section-subtitle center-block" style="margin-bottom: 3.5rem;">
+            Everything your engineering team and executive suite need to ship reliably, monitor effortlessly, and scale seamlessly.
+          </p>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+          <!-- Service Card 1 -->
+          <div class="service-card" data-card-id="1">
+            <div class="service-card-image-wrap">
+              <img src="assets/service_cloud.webp" alt="Autonomous Cloud Orchestration" class="service-card-img">
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+              </div>
+              <h3 class="service-title">Autonomous Cloud Orchestration</h3>
+              <p class="service-desc">Multi-cloud cluster provisioning across AWS, GCP, and Azure with automatic auto-scaling and spot-instance optimization.</p>
+              <div class="service-tags">
+                <span class="service-tag">Kubernetes</span>
+                <span class="service-tag">Multi-Cloud</span>
+              </div>
+              <a href="404.html" class="service-link">View Details →</a>
+            </div>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card" data-card-id="2">
+            <div class="service-card-image-wrap">
+              <img src="assets/service_telemetry.webp" alt="Real-Time APM Telemetry" class="service-card-img">
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              </div>
+              <h3 class="service-title">Real-Time APM Telemetry</h3>
+              <p class="service-desc">Sub-second distributed tracing, endpoint health metrics, error tracking, and AI anomaly detection before outages impact customers.</p>
+              <div class="service-tags">
+                <span class="service-tag">Tracing</span>
+                <span class="service-tag">Sentry Sync</span>
+              </div>
+              <a href="404.html" class="service-link">View Details →</a>
+            </div>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card" data-card-id="3">
+            <div class="service-card-image-wrap">
+              <img src="assets/service_revenue.webp" alt="Executive Revenue Analytics" class="service-card-img">
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <h3 class="service-title">Executive Revenue Analytics</h3>
+              <p class="service-desc">Live ARR, MRR, cohort retention, CAC payback curves, and investor-grade financial dashboards for founders and leaders.</p>
+              <div class="service-tags">
+                <span class="service-tag">ARR Modeling</span>
+                <span class="service-tag">Cohort LTV</span>
+              </div>
+              <a href="404.html" class="service-link">View Details →</a>
+            </div>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="service-card" data-card-id="4">
+            <div class="service-card-image-wrap">
+              <img src="assets/service_security.webp" alt="Enterprise Zero-Trust Security" class="service-card-img">
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <h3 class="service-title">Enterprise Zero-Trust Security</h3>
+              <p class="service-desc">End-to-end mTLS encryption, SOC2 Type II compliance controls, role-based access granularity, and vulnerability scanning.</p>
+              <div class="service-tags">
+                <span class="service-tag">mTLS</span>
+                <span class="service-tag">SOC2</span>
+              </div>
+              <a href="404.html" class="service-link">View Details →</a>
+            </div>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div class="service-card" data-card-id="5">
+            <div class="service-card-image-wrap">
+              <img src="assets/service_cicd.webp" alt="Continuous CI/CD Delivery" class="service-card-img">
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+              <h3 class="service-title">Continuous CI/CD Delivery</h3>
+              <p class="service-desc">Instant git-push deployments, ephemeral preview staging environments, automated database migrations, and 1-click rollbacks.</p>
+              <div class="service-tags">
+                <span class="service-tag">GitHub Actions</span>
+                <span class="service-tag">Canary</span>
+              </div>
+              <a href="404.html" class="service-link">View Details →</a>
+            </div>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div class="service-card" data-card-id="6">
+            <div class="service-card-image-wrap">
+              <img src="assets/service_edge.webp" alt="Edge API Gateway & Caching" class="service-card-img">
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <h3 class="service-title">Edge API Gateway & Caching</h3>
+              <p class="service-desc">Sub-10ms global edge network routing with built-in rate-limiting, DDoS mitigation, and intelligent GraphQL query caching.</p>
+              <div class="service-tags">
+                <span class="service-tag">Global Edge</span>
+                <span class="service-tag">DDoS Shield</span>
+              </div>
+              <a href="404.html" class="service-link">View Details →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 3.5rem;">
+          <a href="404.html" class="btn btn-primary btn-lg">Explore All Services & Pricing →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STATISTICS SECTION (BLACK BANNER WITH WHITE METRICS)
+         ========================================================================== -->
+    <section class="stats-section" aria-label="Key Platform Metrics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-target="99.999" data-suffix="%" data-decimals="3">99.999%</div>
+            <div class="stat-label">Cloud Uptime SLA</div>
+            <div class="stat-sub">Enterprise Tier Contractual</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="4.8" data-prefix="$" data-suffix="B+" data-decimals="1">$4.8B+</div>
+            <div class="stat-label">Customer ARR Monitored</div>
+            <div class="stat-sub">Across 2,400+ Startups</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="18" data-prefix="<" data-suffix="ms" data-decimals="0">&lt;18ms</div>
+            <div class="stat-label">Global Edge Latency</div>
+            <div class="stat-sub">P99 worldwide average</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="250" data-suffix="K+" data-decimals="0">250K+</div>
+            <div class="stat-label">Automated Deployments</div>
+            <div class="stat-sub">Zero-downtime rollouts</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BLOG / ARTICLES SECTION (IMAGE RICH)
+         ========================================================================== -->
+    <section class="blog-section" id="blog-teaser">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Latest Insights</span>
+          </div>
+          <h2 class="section-title">
+            Engineering dispatches & <br><span class="highlight-text">startup scaling guides.</span>
+          </h2>
+          <p class="section-subtitle center-block">
+            Proven playbooks from cloud architects and venture-backed founders on scaling to millions of users.
+          </p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Article 1 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_kubernetes.jpg?v=2.0" alt="How to Architect Sub-20ms Multi-Region Kubernetes Clusters" class="blog-img">
+              <span class="blog-category-badge">Architecture</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Oct 12, 2026</span> &middot; <span>6 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">How to Architect Sub-20ms Multi-Region Kubernetes Clusters</a></h3>
+              <p class="blog-excerpt">A deep-dive technical blueprint on anycast DNS routing, cluster mesh peering, and database replication across AWS and GCP.</p>
+              <div class="blog-author">
+                <img src="assets/author_elena.webp" alt="Elena Rostova" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>Elena Rostova</h5>
+                  <span>Lead Cloud Architect</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_saas.webp" alt="SaaS ARR Metrics" class="blog-img">
+              <span class="blog-category-badge">Growth & ARR</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Oct 8, 2026</span> &middot; <span>8 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">The 5 Critical Financial Metrics Every Series A Founder Needs</a></h3>
+              <p class="blog-excerpt">Why net dollar retention and CAC payback efficiency matter 10x more than top-line GMV in modern venture markets.</p>
+              <div class="blog-author">
+                <img src="assets/author_marcus.webp" alt="Marcus Vance" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>Marcus Vance</h5>
+                  <span>CEO & Founder</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_zerotrust.webp" alt="Zero Trust Security" class="blog-img">
+              <span class="blog-category-badge">Security</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Sep 29, 2026</span> &middot; <span>5 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">Automating SOC2 Type II Compliance Without Slowing Down Shipping</a></h3>
+              <p class="blog-excerpt">Practical guidelines for continuous evidence gathering, mTLS enforcement, and automated secret rotation.</p>
+              <div class="blog-author">
+                <img src="assets/author_sophia.webp" alt="Sophia Chen" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>Sophia Chen</h5>
+                  <span>Head of Security</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center" style="margin-top: 3.5rem;">
+          <a href="404.html" class="btn btn-secondary btn-lg">View All Articles & Guides →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DEVELOPER TOOLCHAIN & CLOUD ECOSYSTEM SECTION (NEW RELEVANT SECTION)
+         ========================================================================== -->
+    <section class="ecosystem-section" id="ecosystem-section">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Developer Toolchain & Integrations</span>
+          </div>
+          <h2 class="section-title">
+            Integrates seamlessly with <br><span class="highlight-text">your modern infrastructure.</span>
+          </h2>
+          <p class="section-subtitle center-block" style="margin-bottom: 3.5rem;">
+            Zero migration friction. Connect Stackly in under 15 minutes with your cloud providers, CI/CD pipelines, container meshes, and financial systems.
+          </p>
+        </div>
+
+        <div class="ecosystem-grid" id="ecosystemGrid">
+          <!-- Ecosystem Card 1 -->
+          <div class="ecosystem-card">
+            <div class="ecosystem-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+            <span class="ecosystem-badge">Compute & Mesh</span>
+            <h3 class="ecosystem-title">Multi-Cloud Fabric</h3>
+            <p class="ecosystem-desc">Autonomous topology sync across AWS EKS, Google Cloud GKE, and Azure AKS with cross-cloud packet deduplication and zero egress shock.</p>
+            <div class="ecosystem-pills">
+              <span class="ecosystem-pill">AWS EKS</span>
+              <span class="ecosystem-pill">GCP GKE</span>
+              <span class="ecosystem-pill">Azure AKS</span>
+              <span class="ecosystem-pill">DigitalOcean</span>
+            </div>
+            <div class="ecosystem-status">
+              <span class="live-pulse-dot"></span>
+              <span>Active Multi-Cloud Mesh</span>
+            </div>
+          </div>
+
+          <!-- Ecosystem Card 2 -->
+          <div class="ecosystem-card">
+            <div class="ecosystem-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+            </div>
+            <span class="ecosystem-badge">Continuous Delivery</span>
+            <h3 class="ecosystem-title">GitOps & CI/CD Pipelines</h3>
+            <p class="ecosystem-desc">Direct git-push orchestration. Automatic blue/green cutovers, ephemeral preview environments, and instant canary rollbacks upon metric degradation.</p>
+            <div class="ecosystem-pills">
+              <span class="ecosystem-pill">GitHub Actions</span>
+              <span class="ecosystem-pill">GitLab CI</span>
+              <span class="ecosystem-pill">ArgoCD</span>
+              <span class="ecosystem-pill">Terraform</span>
+            </div>
+            <div class="ecosystem-status">
+              <span class="live-pulse-dot"></span>
+              <span>Zero-Downtime Rollbacks</span>
+            </div>
+          </div>
+
+          <!-- Ecosystem Card 3 -->
+          <div class="ecosystem-card">
+            <div class="ecosystem-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <span class="ecosystem-badge">Observability</span>
+            <h3 class="ecosystem-title">Sub-ms Telemetry Stream</h3>
+            <p class="ecosystem-desc">Unified distributed tracing, OpenTelemetry streaming, Prometheus scraping, and automated alert dispatch directly into engineering Slack channels.</p>
+            <div class="ecosystem-pills">
+              <span class="ecosystem-pill">Datadog</span>
+              <span class="ecosystem-pill">Prometheus</span>
+              <span class="ecosystem-pill">Grafana</span>
+              <span class="ecosystem-pill">PagerDuty</span>
+            </div>
+            <div class="ecosystem-status">
+              <span class="live-pulse-dot"></span>
+              <span>Sub-Millisecond P99</span>
+            </div>
+          </div>
+
+          <!-- Ecosystem Card 4 -->
+          <div class="ecosystem-card">
+            <div class="ecosystem-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+              </svg>
+            </div>
+            <span class="ecosystem-badge">Financial Intelligence</span>
+            <h3 class="ecosystem-title">Unit Economics & Ledgers</h3>
+            <p class="ecosystem-desc">Direct linkage between Kubernetes pod consumption and live customer ARR, cohort expansion rates, and board-ready gross margin models.</p>
+            <div class="ecosystem-pills">
+              <span class="ecosystem-pill">Stripe Billing</span>
+              <span class="ecosystem-pill">Chargebee</span>
+              <span class="ecosystem-pill">Brex</span>
+              <span class="ecosystem-pill">QuickBooks</span>
+            </div>
+            <div class="ecosystem-status">
+              <span class="live-pulse-dot"></span>
+              <span>Real-Time ARR Bridge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 3.5rem;">
+          <a href="404.html" class="btn btn-primary btn-lg">Explore 100+ Cloud Integrations →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CALL TO ACTION BANNER (BLACK CARD WITH WHITE TEXT)
+         ========================================================================== -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner-box">
+          <h2 class="cta-banner-title">Ready to accelerate your startup's infrastructure?</h2>
+          <p class="cta-banner-desc">
+            Deploy in minutes with zero-config automation, SOC2-compliant security, and executive revenue intelligence.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="404.html" class="btn btn-secondary btn-lg" style="background: #ffffff; color: #000000; border-color: #ffffff;">
+              <span>Start Free 14-Day Trial</span>
+            </a>
+            <a href="404.html" class="btn btn-outline btn-lg" style="border-color: #ffffff; color: #ffffff;">
+              <span>Schedule Architecture Review</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand Info with prominent Transparent Stackly logo -->
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly Home">
+            <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="footer-logo">
+          </a>
+          <p class="footer-caption">
+            The next-generation cloud infrastructure and growth intelligence platform for high-velocity startups.
+          </p>
+          <div class="social-links" aria-label="Social Media Links">
+            <a href="404.html" class="social-link" aria-label="X (Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links Column 1: Quick Links (Updated per request) -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="blog.html" class="footer-link">Blog & Insights</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Column 2: Company (Verified Active Targets, Zero 404s!) -->
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Leadership</a></li>
+            <li><a href="404.html" class="footer-link">Careers</a></li>
+            <li><a href="404.html" class="footer-link">Headquarters</a></li>
+            <li><a href="404.html" class="footer-link">SOC2 Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Stackly Address & Office Details (Replaced Stay Updated) -->
+        <div>
+          <h4 class="footer-col-title">Stackly Headquarters</h4>
+          <div class="footer-address-block">
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>San Francisco HQ</strong><br>
+                500 Howard Street, Suite 400<br>
+                San Francisco, CA 94105
+              </div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div>founders@stackly.io &middot; contact@stackly.io</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div>+1 (415) 890-4820 (24/7 SLA)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Inc. All rights reserved. Built with precision for modern tech startups.</div>
+        <div class="system-status-badge">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+          <span>All Global Systems Operational</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING BRAND ELEMENT / QUICK ACTION HUB
+       ========================================================================== -->
+  <div class="floating-brand-hub">
+    <div class="floating-hub-menu">
+      <a href="login.html" class="floating-menu-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+        <span>Role Login</span>
+      </a>
+      <a href="dashboard-founder.html" class="floating-menu-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        <span>Founder View</span>
+      </a>
+      <a href="dashboard-engineer.html" class="floating-menu-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        <span>DevOps View</span>
+      </a>
+      <a href="#topHeader" class="floating-menu-item" id="backToTopBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        <span>Back to Top</span>
+      </a>
+    </div>
+    <button class="floating-hub-btn" aria-label="Open Stackly Quick Hub" title="Stackly Quick Actions">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+/* ==========================================================================
+   STACKLY — Split-Screen Authentication Stylesheet
+   (Sign In & Sign Up Pages — Clean White Minimalist & Startup Visual)
+   ========================================================================== */
+
+.auth-split-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  color: #090d16;
+}
+
+/* Left Visual Side (Startup Image & Testimonial) */
+.auth-visual-side {
+  flex: 1.1;
+  position: relative;
+  background-color: #090d16;
+  background-image: url('../assets/auth_visual.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 3.5rem;
+  color: #ffffff;
+}
+
+.auth-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 13, 22, 0.4) 0%, rgba(9, 13, 22, 0.85) 100%);
+  z-index: 1;
+}
+
+.auth-visual-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-visual-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.auth-visual-bottom {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+.auth-visual-quote {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-family: var(--font-heading);
+}
+
+.auth-visual-author {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.auth-visual-author-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.auth-visual-author-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.auth-visual-author-role {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Right Form Side */
+.auth-form-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+.auth-card-container {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back to Home Button at the top of the Stackly logo */
+.auth-back-to-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-bottom: 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary, #475569);
+  padding: 0.45rem 0.95rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm, 8px);
+  text-decoration: none;
+  transition: all var(--transition-fast, 0.2s);
+}
+
+.auth-back-to-home-btn svg {
+  transition: transform var(--transition-fast, 0.2s);
+}
+
+.auth-back-to-home-btn:hover {
+  color: var(--color-brown-primary, #8C4F27);
+  background: var(--color-brown-subtle, #FAF5F0);
+  border-color: var(--color-brown-border, #E8DDD2);
+  transform: translateX(-3px);
+}
+
+.auth-back-to-home-btn:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Prominent Stackly Logo */
+.auth-logo-header {
+  margin-bottom: 1.75rem;
+}
+
+.auth-brand-logo {
+  height: 72px;
+  width: auto;
+  max-height: 82px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(1.35);
+  transform-origin: left center;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+  color: #090d16;
+}
+
+.auth-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Form Controls */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.auth-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #090d16;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: #94a3b8;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.85rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  color: #090d16;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.auth-input.error {
+  border: 2px solid #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.22) !important;
+  animation: inputErrorShake 0.35s ease-in-out;
+}
+
+.pwd-toggle-btn {
+  position: absolute;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.pwd-toggle-btn:hover {
+  color: #000000;
+}
+
+/* Inline Validation Messages (Hidden by default, shown only on error) */
+.validation-hint {
+  font-size: 0.82rem;
+  color: #ef4444;
+  margin-top: 0.35rem;
+  display: none;
+  font-weight: 700;
+  animation: errorSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes errorSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes inputErrorShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+.auth-input.error ~ .validation-hint,
+.input-wrapper.error ~ .validation-hint,
+.auth-field.has-error .validation-hint {
+  display: block;
+}
+
+/* Role Selector Component (Positioned Below Password) */
+.role-select-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.role-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.role-card-option {
+  position: relative;
+}
+
+.role-card-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.role-card-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  height: 100%;
+  transition: all var(--transition-fast);
+}
+
+.role-card-label:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.role-card-option input[type="radio"]:checked + .role-card-label {
+  background: #FAF5F0;
+  border-color: #8C4F27;
+  box-shadow: 0 2px 10px rgba(140, 79, 39, 0.1);
+}
+
+.role-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.role-icon-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8C4F27;
+}
+
+.role-check-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.role-card-option input[type="radio"]:checked + .role-card-label .role-check-indicator {
+  background: #8C4F27;
+  border-color: #8C4F27;
+}
+
+.role-card-option input[type="radio"]:checked + .role-card-label .role-check-indicator::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.role-title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #090d16;
+  line-height: 1.25;
+}
+
+.role-desc {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Submit Button & Switch Link */
+.auth-submit-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.auth-switch-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.auth-link {
+  color: #8C4F27;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-link:hover {
+  color: #723C1A;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .auth-visual-side {
+    display: none;
+  }
+  .auth-form-side {
+    padding: 3rem 1.5rem;
+  }
+}

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevOps Command Center — Stackly Cloud</title>
+  <meta name="description" content="DevOps & Infrastructure Architect telemetry hub. Kubernetes cluster health, API gateway latency, and CI/CD pipelines.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css?v=5.3">
+
+  <!-- Chart.js for High-Res Responsive Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <!-- Dashboard Controller -->
+  <script src="js/dashboard.js?v=5.3" defer></script>
+</head>
+<body class="dashboard-layout dashboard-engineer">
+
+  <!-- ==========================================================================
+       SIDEBAR
+       ========================================================================== -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="sidebar-header">
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <a href="dashboard-engineer.html" class="sidebar-brand-pill" title="Stackly Engineer Dashboard">
+          <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="sidebar-brand-logo">
+        </a>
+        <button class="sidebar-mobile-close-btn" id="dashSidebarClose" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="role-tag-badge">
+        <span class="indicator-dot" style="background: #3b82f6;"></span>
+        <span class="dyn-user-role">DevOps & Cloud Architect</span>
+      </div>
+    </div>
+
+    <!-- Navigation Modules -->
+    <div class="sidebar-nav-container">
+      <div>
+        <div class="sidebar-nav-group-title">Infrastructure Modules</div>
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item active" data-module="module-overview" data-title="DevOps Command Center">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Cluster Overview</span>
+            </div>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-k8s" data-title="Kubernetes Clusters & Nodes">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+              <span>Kubernetes K8s</span>
+            </div>
+            <span class="sidebar-badge">4 Clusters</span>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-gateway" data-title="API Gateway & Edge Latency">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span>API Gateway</span>
+            </div>
+            <span class="sidebar-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">18ms</span>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-cicd" data-title="CI/CD Pipelines & Deploys">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              <span>CI/CD Deployments</span>
+            </div>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-apm" data-title="Sentry APM & Incident Logs">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>Sentry APM Logs</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Sidebar Bottom Action (Only Sign Out Button) -->
+    <div class="sidebar-bottom-action">
+      <button class="sidebar-signout-btn logout-action-btn" type="button" aria-label="Sign Out">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <div class="dash-main">
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button class="dash-sidebar-mobile-toggle" id="dashSidebarToggle" aria-label="Toggle sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="dash-topbar-title-wrap">
+          <h2 class="dash-page-title">DevOps Command Center</h2>
+          <span class="dash-page-breadcrumb">Infrastructure / Cluster Health</span>
+        </div>
+      </div>
+
+      <div class="dash-topbar-right">
+        <!-- Live Status Pill -->
+        <div class="table-status-pill success" style="padding: 0.4rem 0.85rem; font-size: 0.78rem;">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+          <span>8 Regions Healthy (0 Incidents)</span>
+        </div>
+
+
+        <!-- Notification Bell (Navigates to 404) -->
+        <div style="position: relative;">
+          <a href="404.html" class="notification-bell-btn" id="notifDropdownBtn" aria-label="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="notification-badge-dot" style="background: #10b981;"></span>
+          </a>
+
+          <div class="dropdown-menu-card" id="notifDropdownMenu">
+            <div class="dropdown-header">
+              <span>Engineering Telemetry Alerts</span>
+              <span style="font-size: 0.72rem; color: #10b981; font-weight: normal;">Live Stream</span>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon-circle" style="color: #10b981;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <div class="notif-text">
+                <div class="notif-title">Autoscaling Triggered</div>
+                <div>us-east-1 scaled +6 pods due to traffic spike.</div>
+                <div class="notif-time">3 mins ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon-circle" style="color: #60a5fa;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              </div>
+              <div class="notif-text">
+                <div class="notif-title">Deploy v2.4.1 Finished</div>
+                <div>Canary traffic promoted to 100% with 0 errors.</div>
+                <div class="notif-time">22 mins ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon-circle" style="color: #10b981;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <div class="notif-text">
+                <div class="notif-title">mTLS Rotation Completed</div>
+                <div>Zero-trust certificates renewed for all 128 pods.</div>
+                <div class="notif-time">1 hour ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Dropdown Trigger -->
+        <div style="position: relative;">
+          <button class="profile-trigger-btn" id="profileDropdownBtn">
+            <div class="profile-trigger-avatar dyn-user-initials" style="background: #3b82f6; color: #ffffff;">ER</div>
+            <span class="profile-trigger-name dyn-user-name">Elena Rostova</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+
+          <div class="profile-dropdown-card" id="profileDropdownMenu">
+            <div class="profile-dropdown-userinfo">
+              <div class="profile-dd-name dyn-user-name">Elena Rostova</div>
+              <div class="profile-dd-email dyn-user-email">elena.rostova@gmail.com</div>
+              <span class="profile-dd-role dyn-user-role">DevOps & Cloud Architect</span>
+            </div>
+            <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="dashboard-founder.html" style="font-size: 0.82rem; font-weight: 600; color: #8C4F27; text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+                <span>Switch to Founder View</span>
+                <span>&rarr;</span>
+              </a>
+              <button class="logout-action-btn" type="button" style="background: none; border: none; padding: 0.25rem 0; font-size: 0.82rem; font-weight: 600; color: #ef4444; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Modules -->
+    <main class="dash-content">
+      <!-- ==========================================================================
+           MODULE 1: OVERVIEW (Default)
+           ========================================================================== -->
+      <section class="dash-module-section active" id="module-overview">
+        <!-- Welcome Banner -->
+        <div class="dash-welcome-banner">
+          <div>
+            <h1 class="dash-welcome-title">Systems Operational, <span class="dyn-user-name">Elena</span></h1>
+            <p class="dash-welcome-desc">Global P99 latency is 18.2ms across all 8 multi-cloud Kubernetes clusters.</p>
+          </div>
+          <div class="dash-banner-actions">
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Export Telemetry</span>
+            </button>
+            <a href="dashboard-founder.html" class="btn btn-primary btn-sm">
+              <span>View Founder ARR →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 KPI Summary Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">Global Uptime SLA</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">99.994%</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge positive">▲ +0.02%</span>
+              <span class="trend-subtext">30-day trailing SLA</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">P99 Gateway Latency</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">18.2 ms</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge positive">-4.2ms vs target</span>
+              <span class="trend-subtext">Sub-20ms optimal</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">Active Container Pods</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">128 Pods</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge positive">100% Healthy</span>
+              <span class="trend-subtext">4 Clusters (AWS/GCP)</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">CI/CD Deploy Success</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">99.4%</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge positive">54 Deploys Today</span>
+              <span class="trend-subtext">0 Rollbacks needed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid Row 1: 24h Latency & Request Throughput -->
+        <div class="charts-grid-row">
+          <div class="chart-panel-card">
+            <div class="chart-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>24-Hour Latency & Request Volume</h3>
+                <p>Dual-axis telemetry showing response time vs requests per second</p>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="engineerLatencyChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Doughnut Chart: Infrastructure Allocation -->
+          <div class="chart-panel-card">
+            <div class="chart-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>Resource Allocation</h3>
+                <p>Multi-cloud cluster compute usage</p>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="engineerResourceChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid Row 2: Microservice Breakdown & Cluster Node Health -->
+        <div class="charts-grid-row equal">
+          <div class="chart-panel-card">
+            <div class="chart-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>Microservice Throughput</h3>
+                <p>Requests processed per minute by internal service mesh</p>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="engineerMicroserviceChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Deployments Table -->
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>Recent Git Deployments</h3>
+                <p>Production cluster rollouts and commit statuses</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export Log</button>
+            </div>
+            <div class="data-table-responsive">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th>Commit / SHA</th>
+                    <th>Branch</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>9b4f2c1</code> feat: edge cache</td>
+                    <td>main</td>
+                    <td>1m 12s</td>
+                    <td><span class="table-status-pill success">Deployed</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>a71d80e</code> fix: rate limiter</td>
+                    <td>main</td>
+                    <td>48s</td>
+                    <td><span class="table-status-pill success">Deployed</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>3c90e21</code> chore: update deps</td>
+                    <td>staging</td>
+                    <td>1m 34s</td>
+                    <td><span class="table-status-pill info">Testing</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>f28b19a</code> perf: gql dataloader</td>
+                    <td>main</td>
+                    <td>52s</td>
+                    <td><span class="table-status-pill success">Deployed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 2: KUBERNETES CLUSTERS & FLEET (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-k8s">
+        <!-- Section 1: Global Cluster Health KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Managed Kubernetes Nodes</span></div>
+            <div class="kpi-card-value">128 Nodes</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">100% Ready</span><span class="trend-subtext">Across 4 clusters</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Active Running Pods</span></div>
+            <div class="kpi-card-value">1,024 / 1,024</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">0 CrashLoops</span><span class="trend-subtext">0 Evicted pods</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Fleet CPU Load (Avg)</span></div>
+            <div class="kpi-card-value">26.8%</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Spot Optimized</span><span class="trend-subtext">512 total vCPUs</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Fleet Memory Allocation</span></div>
+            <div class="kpi-card-value">59.4%</div>
+            <div class="kpi-card-footer"><span class="trend-badge neutral">81.9GB / 128GB</span><span class="trend-subtext">Headroom available</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Regional Cluster Node Cards -->
+        <div class="cluster-nodes-grid">
+          <div class="node-card">
+            <div class="node-header">
+              <span>us-east-1 (N. Virginia &middot; AWS EKS)</span>
+              <span class="table-status-pill success">Healthy</span>
+            </div>
+            <div class="node-stat-row"><span>Active Pods:</span> <strong>256 / 256 Running</strong></div>
+            <div class="node-stat-row"><span>CPU Usage:</span> <strong>28.4% (128 Cores)</strong></div>
+            <div class="node-stat-row"><span>Memory:</span> <strong>64.2% of 32GB</strong></div>
+            <div class="node-stat-row"><span>Service Mesh:</span> <strong>Istio Strict mTLS 1.3</strong></div>
+          </div>
+
+          <div class="node-card">
+            <div class="node-header">
+              <span>us-west-2 (Oregon &middot; AWS EKS)</span>
+              <span class="table-status-pill success">Healthy</span>
+            </div>
+            <div class="node-stat-row"><span>Active Pods:</span> <strong>256 / 256 Running</strong></div>
+            <div class="node-stat-row"><span>CPU Usage:</span> <strong>24.1% (128 Cores)</strong></div>
+            <div class="node-stat-row"><span>Memory:</span> <strong>58.9% of 32GB</strong></div>
+            <div class="node-stat-row"><span>Service Mesh:</span> <strong>Istio Strict mTLS 1.3</strong></div>
+          </div>
+
+          <div class="node-card">
+            <div class="node-header">
+              <span>eu-west-1 (Frankfurt &middot; GCP GKE)</span>
+              <span class="table-status-pill success">Healthy</span>
+            </div>
+            <div class="node-stat-row"><span>Active Pods:</span> <strong>256 / 256 Running</strong></div>
+            <div class="node-stat-row"><span>CPU Usage:</span> <strong>31.8% (128 Cores)</strong></div>
+            <div class="node-stat-row"><span>Memory:</span> <strong>69.4% of 32GB</strong></div>
+            <div class="node-stat-row"><span>Service Mesh:</span> <strong>Istio Strict mTLS 1.3</strong></div>
+          </div>
+
+          <div class="node-card">
+            <div class="node-header">
+              <span>ap-southeast-1 (Singapore &middot; GCP GKE)</span>
+              <span class="table-status-pill success">Healthy</span>
+            </div>
+            <div class="node-stat-row"><span>Active Pods:</span> <strong>256 / 256 Running</strong></div>
+            <div class="node-stat-row"><span>CPU Usage:</span> <strong>19.2% (128 Cores)</strong></div>
+            <div class="node-stat-row"><span>Memory:</span> <strong>44.1% of 32GB</strong></div>
+            <div class="node-stat-row"><span>Service Mesh:</span> <strong>Istio Strict mTLS 1.3</strong></div>
+          </div>
+        </div>
+
+        <!-- Section 3: Live Workload Pod Status Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Core Microservice Pod Fleet</h3>
+              <p>Real-time telemetry from Kubernetes control planes</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export Pod Telemetry</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Pod Identifier</th>
+                  <th>Namespace</th>
+                  <th>Container Image</th>
+                  <th>CPU Load</th>
+                  <th>Restarts</th>
+                  <th>Uptime</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>auth-mesh-v2-7df84</code></td>
+                  <td>production</td>
+                  <td>ghcr.io/stackly/auth:v2.4.2</td>
+                  <td>42m</td>
+                  <td>0</td>
+                  <td>14d 8h</td>
+                  <td><span class="table-status-pill success">Running</span></td>
+                </tr>
+                <tr>
+                  <td><code>ingress-gw-88c1b</code></td>
+                  <td>networking</td>
+                  <td>ghcr.io/stackly/envoy-gw:v1.30</td>
+                  <td>128m</td>
+                  <td>0</td>
+                  <td>28d 4h</td>
+                  <td><span class="table-status-pill success">Running</span></td>
+                </tr>
+                <tr>
+                  <td><code>db-cluster-rw-4</code></td>
+                  <td>data</td>
+                  <td>cloudnative-pg/pg:v16.2</td>
+                  <td>310m</td>
+                  <td>0</td>
+                  <td>42d 1h</td>
+                  <td><span class="table-status-pill success">Running</span></td>
+                </tr>
+                <tr>
+                  <td><code>telemetry-ingest-9f2</code></td>
+                  <td>observability</td>
+                  <td>ghcr.io/stackly/ingest:v2.4.8</td>
+                  <td>94m</td>
+                  <td>0</td>
+                  <td>7d 12h</td>
+                  <td><span class="table-status-pill success">Running</span></td>
+                </tr>
+                <tr>
+                  <td><code>redis-cache-ring-0</code></td>
+                  <td>cache</td>
+                  <td>redis:7.2-alpine</td>
+                  <td>18m</td>
+                  <td>0</td>
+                  <td>58d 9h</td>
+                  <td><span class="table-status-pill success">Running</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Auto-Scaling Policy & Spot Optimization -->
+        <div class="module-sub-grid">
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Horizontal Pod Autoscaler (HPA)</h3>
+                <p>Thresholds configured for peak concurrency</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="font-weight: 700; font-size: 0.95rem;">Target CPU Utilization: 70%</div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Autoscaler expands pods when sustained load exceeds threshold for &gt;45 seconds.</div>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="font-weight: 700; font-size: 0.95rem;">Pod Fleet Scale Range: 4 to 64 Pods</div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Zero-downtime scale-out with sub-1.5 second container cold-starts.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Spot Instance Cost Optimizer</h3>
+                <p>Automated pre-emptible node reclamation</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="scenario-card highlight" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="font-size: 0.95rem;">Monthly Spot Savings</strong>
+                  <span class="table-status-pill success">-$14,200 /mo</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">68% of worker node workloads running on discounted AWS/GCP spot capacity.</div>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="font-size: 0.95rem;">Cluster Version</strong>
+                  <span class="table-status-pill info">Kubernetes v1.30.2</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Automated security patch updates scheduled during zero-traffic windows.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 3: API GATEWAY & EDGE LATENCY (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-gateway">
+        <!-- Section 1: API Gateway Global KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Total Requests (24h)</span></div>
+            <div class="kpi-card-value">14,842,000</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">+22.4% traffic</span><span class="trend-subtext">Peak 4,200 RPS</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Global P99 Edge Latency</span></div>
+            <div class="kpi-card-value">17.4ms</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Target &lt;25ms</span><span class="trend-subtext">Sub-millisecond routing</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Edge Cache Hit Ratio</span></div>
+            <div class="kpi-card-value">94.8%</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Cloudflare Edge</span><span class="trend-subtext">Reduced origin load</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">HTTP 5xx Server Error Rate</span></div>
+            <div class="kpi-card-value">0.0002%</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Optimal</span><span class="trend-subtext">Zero outages</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Regional Edge Latency Benchmark Matrix -->
+        <div class="module-sub-grid">
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Regional Latency Benchmarks</h3>
+                <p>Round-trip response time from global anycast edge nodes</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>North America East (Ashburn)</span>
+                  <span style="color: #10b981;">8.2ms</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 25%; background: #10b981;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>North America West (San Jose)</span>
+                  <span style="color: #10b981;">11.4ms</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 32%; background: #10b981;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>Europe West (Frankfurt / London)</span>
+                  <span style="color: #10b981;">15.8ms</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 45%; background: #10b981;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>Asia Pacific (Singapore / Tokyo)</span>
+                  <span style="color: #3b82f6;">22.6ms</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 60%; background: #3b82f6;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Transport & Handshake Protocols</h3>
+                <p>Cryptographic TLS offloading efficiency</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <strong style="font-size: 0.95rem;">HTTP/3 (QUIC) Traffic Share</strong>
+                  <span class="table-status-pill success">78.4%</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">UDP-based multiplexing eliminating head-of-line blocking.</div>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <strong style="font-size: 0.95rem;">0-RTT TLS 1.3 Resumption</strong>
+                  <span class="table-status-pill success">92.1%</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Near-zero cryptographic overhead on repeated client sessions.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Top API Route Performance & Throughput Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>API Route Telemetry & Ingress Performance</h3>
+              <p>Live metrics from the distributed Envoy gateway cluster</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export Route Metrics</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>API Endpoint</th>
+                  <th>Method</th>
+                  <th>Throughput (RPS)</th>
+                  <th>P95 Latency</th>
+                  <th>Cache State</th>
+                  <th>Rate Ceiling</th>
+                  <th>Health</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>/v1/telemetry/ingest</code></td>
+                  <td><span class="table-status-pill neutral">POST</span></td>
+                  <td>4,200 RPS</td>
+                  <td>12ms</td>
+                  <td>Bypass (Live)</td>
+                  <td>10,000 /sec</td>
+                  <td><span class="table-status-pill success">Nominal</span></td>
+                </tr>
+                <tr>
+                  <td><code>/v1/auth/session</code></td>
+                  <td><span class="table-status-pill neutral">POST</span></td>
+                  <td>890 RPS</td>
+                  <td>8ms</td>
+                  <td>Bypass</td>
+                  <td>2,500 /sec</td>
+                  <td><span class="table-status-pill success">Nominal</span></td>
+                </tr>
+                <tr>
+                  <td><code>/v1/clusters/orchestrate</code></td>
+                  <td><span class="table-status-pill neutral">PUT</span></td>
+                  <td>340 RPS</td>
+                  <td>18ms</td>
+                  <td>Bypass</td>
+                  <td>1,000 /sec</td>
+                  <td><span class="table-status-pill success">Nominal</span></td>
+                </tr>
+                <tr>
+                  <td><code>/v1/metrics/stream</code></td>
+                  <td><span class="table-status-pill neutral">GET</span></td>
+                  <td>1,200 RPS</td>
+                  <td>6ms</td>
+                  <td>Edge Cached</td>
+                  <td>5,000 /sec</td>
+                  <td><span class="table-status-pill success">Nominal</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Web Application Firewall (WAF) & DDoS Mitigation -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Security Shield & DDoS Threat Mitigation</h3>
+              <p>Automated rate limiting and malicious bot scrubbing logs</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">Configure WAF Rules</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Threat Rule Name</th>
+                  <th>Attack Type</th>
+                  <th>Mitigation Action</th>
+                  <th>24h Dropped Requests</th>
+                  <th>Protection Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Rate-Limiter Tier A</strong></td>
+                  <td>Layer-7 HTTP Flood</td>
+                  <td>HTTP 429 Challenge</td>
+                  <td>1,120 attempts</td>
+                  <td><span class="table-status-pill success">Enforced</span></td>
+                </tr>
+                <tr>
+                  <td><strong>OWASP Top 10 Core</strong></td>
+                  <td>SQLi & Cross-Site Scripting</td>
+                  <td>Drop TCP Connection</td>
+                  <td>245 attempts</td>
+                  <td><span class="table-status-pill success">Enforced</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Known Bot Signature Filter</strong></td>
+                  <td>Automated Credential Stuffer</td>
+                  <td>Cloudflare Managed Challenge</td>
+                  <td>55 attempts</td>
+                  <td><span class="table-status-pill success">Enforced</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 4: CI/CD PIPELINES & DEPLOYS (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-cicd">
+        <!-- Section 1: Delivery Velocity & DORA Metrics KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Deployment Frequency</span></div>
+            <div class="kpi-card-value">18 Deploys /day</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Elite DORA Level</span><span class="trend-subtext">Direct to main</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Lead Time for Changes</span></div>
+            <div class="kpi-card-value">48 Seconds</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Turborepo Cache</span><span class="trend-subtext">Instant builds</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Change Failure Rate</span></div>
+            <div class="kpi-card-value">&lt; 0.1%</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Automated Canaries</span><span class="trend-subtext">Zero bad rollouts</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Mean Time to Recovery (MTTR)</span></div>
+            <div class="kpi-card-value">2.4 Minutes</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">1-Click Rollback</span><span class="trend-subtext">Fastest in class</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Active & Historical Deployment Pipeline Runs Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Recent Pipeline Executions & Builds</h3>
+              <p>Continuous deployment history connected to GitHub Actions repository</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export Deploy Logs</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Pipeline Name</th>
+                  <th>Trigger / Branch</th>
+                  <th>Commit Hash</th>
+                  <th>Triggered By</th>
+                  <th>Build Duration</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>deploy-cloud-mesh-v2.4</code></td>
+                  <td>git push <code>main</code></td>
+                  <td><code>#a89f21c</code></td>
+                  <td>Elena Rostova</td>
+                  <td>52s</td>
+                  <td><span class="table-status-pill success">Deployed</span></td>
+                </tr>
+                <tr>
+                  <td><code>api-gateway-patch-hotfix</code></td>
+                  <td>PR #342 merged</td>
+                  <td><code>#f412d08</code></td>
+                  <td>David Kim</td>
+                  <td>41s</td>
+                  <td><span class="table-status-pill success">Deployed</span></td>
+                </tr>
+                <tr>
+                  <td><code>auth-service-canary</code></td>
+                  <td>git push <code>main</code></td>
+                  <td><code>#b771e33</code></td>
+                  <td>Elena Rostova</td>
+                  <td>1m 04s</td>
+                  <td><span class="table-status-pill info">Canary 10%</span></td>
+                </tr>
+                <tr>
+                  <td><code>db-migration-v88</code></td>
+                  <td>git push <code>main</code></td>
+                  <td><code>#c901a12</code></td>
+                  <td>David Kim</td>
+                  <td>38s</td>
+                  <td><span class="table-status-pill success">Deployed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 3: Blue/Green Traffic Splitting Controller -->
+        <div class="module-sub-grid">
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Blue/Green Traffic Controller</h3>
+                <p>Live canary deployment routing controls</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.15rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>Production Version (v2.4.8 Stable)</span>
+                  <span style="color: #000;">95.0% Live Traffic</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 95%; background: #000000;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>Canary Version (v2.5.0 Release Candidate)</span>
+                  <span style="color: #3b82f6;">5.0% Live Traffic</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 5%; background: #3b82f6;"></div></div>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.5rem;">
+                <strong>Rollback Policy:</strong> Automatic rollback to v2.4.8 is triggered if error rate on canary exceeds <strong>0.05%</strong> over any 60-second sliding window.
+              </div>
+            </div>
+          </div>
+
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Container Registry & Security Scans</h3>
+                <p>Cryptographic provenance and vulnerability checks</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="scenario-card highlight" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="font-size: 0.95rem;">Trivy Vulnerability Audit</strong>
+                  <span class="table-status-pill success">0 CVEs Found</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Images verified against national vulnerability database.</div>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="font-size: 0.95rem;">Cosign Cryptographic Signature</strong>
+                  <span class="table-status-pill success">Verified Valid</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Signed using Stackly hardware security module keys.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Automated Canary Validation Matrix -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Canary Verification Telemetry</h3>
+              <p>Side-by-side metric comparison between stable baseline and canary container pods</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">Promote Canary to 100%</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Validation Metric</th>
+                  <th>Stable (v2.4.8)</th>
+                  <th>Canary (v2.5.0)</th>
+                  <th>Variance</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>P99 API Latency</strong></td>
+                  <td>17.4ms</td>
+                  <td>14.8ms</td>
+                  <td><span style="color: #10b981; font-weight: 600;">-14.9% (Faster)</span></td>
+                  <td><span class="table-status-pill success">Passing</span></td>
+                </tr>
+                <tr>
+                  <td><strong>CPU Utilization / Pod</strong></td>
+                  <td>28.4%</td>
+                  <td>24.2%</td>
+                  <td><span style="color: #10b981; font-weight: 600;">-14.8% (Lower)</span></td>
+                  <td><span class="table-status-pill success">Passing</span></td>
+                </tr>
+                <tr>
+                  <td><strong>HTTP 5xx Error Rate</strong></td>
+                  <td>0.0002%</td>
+                  <td>0.0000%</td>
+                  <td><span style="color: #10b981; font-weight: 600;">0 Errors Detected</span></td>
+                  <td><span class="table-status-pill success">Passing</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 5: SENTRY APM & DISTRIBUTED TRACES (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-apm">
+        <!-- Section 1: Observability & APM Reliability KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Active Critical Incidents</span></div>
+            <div class="kpi-card-value">0 Incidents</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">All Nominal</span><span class="trend-subtext">32 days zero outage</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">SLA Error Budget Remaining</span></div>
+            <div class="kpi-card-value">99.8%</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Target &gt;99.0%</span><span class="trend-subtext">0.0002% consumed</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Distributed Trace Sampling</span></div>
+            <div class="kpi-card-value">100% P99</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Smart Ingest</span><span class="trend-subtext">Sub-millisecond</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Handled Exceptions (24h)</span></div>
+            <div class="kpi-card-value">18 Recovered</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Circuit Breakers</span><span class="trend-subtext">Zero customer impact</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Real-Time Sentry Exception Event Stream Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Real-Time Sentry APM Exception Stream</h3>
+              <p>Proactive anomaly detection, circuit breaker trips, and stack trace digests</p>
+            </div>
+            <span class="table-status-pill success">0 Critical Alerts</span>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Event ID</th>
+                  <th>Microservice</th>
+                  <th>Message / Exception</th>
+                  <th>Occurrences</th>
+                  <th>First Seen</th>
+                  <th>Resolution Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>evt_88921</code></td>
+                  <td>api-gateway</td>
+                  <td>Client connection abort during streaming response</td>
+                  <td>12</td>
+                  <td>18m ago</td>
+                  <td><span class="table-status-pill info">Handled</span></td>
+                </tr>
+                <tr>
+                  <td><code>evt_88914</code></td>
+                  <td>auth-service</td>
+                  <td>Invalid OAuth token signature provided by third-party bot</td>
+                  <td>4</td>
+                  <td>1h ago</td>
+                  <td><span class="table-status-pill success">Rejected</span></td>
+                </tr>
+                <tr>
+                  <td><code>evt_88902</code></td>
+                  <td>db-pool</td>
+                  <td>Read replica pool connection saturated during peak backup</td>
+                  <td>1</td>
+                  <td>3h ago</td>
+                  <td><span class="table-status-pill success">Auto-Scaled</span></td>
+                </tr>
+                <tr>
+                  <td><code>evt_88891</code></td>
+                  <td>telemetry-worker</td>
+                  <td>Kafka partition rebalance during pod scale-out</td>
+                  <td>1</td>
+                  <td>6h ago</td>
+                  <td><span class="table-status-pill success">Rebalanced</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 3: Microservice P99 Latency & Error Budget Breakdown -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Microservice Performance & Error Budgets</h3>
+              <p>Service mesh latency breakdown across core architectural components</p>
+            </div>
+          </div>
+          <div class="microservice-metrics-grid">
+            <div class="scenario-card microservice-metric-card">
+              <div class="microservice-metric-title">API Gateway</div>
+              <div class="microservice-metric-value">
+                <span>14ms</span>
+                <span class="microservice-metric-sub">P99</span>
+              </div>
+              <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 100%; background: #10b981;"></div></div>
+              <div class="microservice-metric-budget">100% Error Budget</div>
+            </div>
+
+            <div class="scenario-card microservice-metric-card">
+              <div class="microservice-metric-title">Auth Mesh</div>
+              <div class="microservice-metric-value">
+                <span>18ms</span>
+                <span class="microservice-metric-sub">P99</span>
+              </div>
+              <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 99.9%; background: #10b981;"></div></div>
+              <div class="microservice-metric-budget">99.9% Error Budget</div>
+            </div>
+
+            <div class="scenario-card microservice-metric-card">
+              <div class="microservice-metric-title">Database Pool</div>
+              <div class="microservice-metric-value">
+                <span>22ms</span>
+                <span class="microservice-metric-sub">P99</span>
+              </div>
+              <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 99.8%; background: #10b981;"></div></div>
+              <div class="microservice-metric-budget">99.8% Error Budget</div>
+            </div>
+
+            <div class="scenario-card microservice-metric-card">
+              <div class="microservice-metric-title">Telemetry Ingest</div>
+              <div class="microservice-metric-value">
+                <span>28ms</span>
+                <span class="microservice-metric-sub">P99</span>
+              </div>
+              <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 100%; background: #10b981;"></div></div>
+              <div class="microservice-metric-budget">100% Error Budget</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Incident Runbook & 24/7 Escalation Roster -->
+        <div class="module-sub-grid">
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>24/7 On-Call Escalation Roster</h3>
+                <p>Systems engineering response rotations</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="scenario-card highlight" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <strong>Primary On-Call: Elena Rostova</strong>
+                  <span class="table-status-pill success">Active Duty</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Chief Cloud Architect &middot; PagerDuty Key: <code>PD_KEY_ROSTOVA</code> &middot; SLA: &lt;5 min</div>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <strong>Secondary Escalation: David Kim</strong>
+                  <span class="table-status-pill neutral">Standby</span>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">VP Engineering &middot; PagerDuty Key: <code>PD_KEY_KIM</code> &middot; SLA: &lt;15 min</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Automated Incident Runbooks</h3>
+                <p>Automated circuit breaker configurations</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+              <div class="dash-callout-card" style="padding: 0.75rem; background: var(--bg-secondary); border-radius: var(--radius-sm); font-size: 0.85rem;">
+                <strong>RB-01: Pod CrashLoop Cascade</strong> &mdash; Triggers automatic rollback to previous container digest within 30s.
+              </div>
+              <div class="dash-callout-card" style="padding: 0.75rem; background: var(--bg-secondary); border-radius: var(--radius-sm); font-size: 0.85rem;">
+                <strong>RB-02: Database Read Saturation</strong> &mdash; Spawns 2 additional read replicas and enables query cache.
+              </div>
+              <div class="dash-callout-card" style="padding: 0.75rem; background: var(--bg-secondary); border-radius: var(--radius-sm); font-size: 0.85rem;">
+                <strong>RB-03: DDoS Edge Spike</strong> &mdash; Activates Cloudflare Under Attack mode and rate-limits unregistered IPs.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

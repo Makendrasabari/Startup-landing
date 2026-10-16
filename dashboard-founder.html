@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Intelligence Hub — Stackly</title>
+  <meta name="description" content="Founder and Executive KPI Dashboard. Real-time ARR, revenue trajectory, customer acquisition, and runway projections.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css?v=5.3">
+
+  <!-- Chart.js for High-Res Responsive Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <!-- Dashboard Controller -->
+  <script src="js/dashboard.js?v=5.3" defer></script>
+</head>
+<body class="dashboard-layout dashboard-founder">
+
+  <!-- ==========================================================================
+       SIDEBAR
+       ========================================================================== -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="sidebar-header">
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <a href="dashboard-founder.html" class="sidebar-brand-pill" title="Stackly Founder Dashboard">
+          <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="sidebar-brand-logo">
+        </a>
+        <button class="sidebar-mobile-close-btn" id="dashSidebarClose" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="role-tag-badge">
+        <span class="indicator-dot"></span>
+        <span class="dyn-user-role">Founder & Executive</span>
+      </div>
+    </div>
+
+    <!-- Navigation Modules -->
+    <div class="sidebar-nav-container">
+      <div>
+        <div class="sidebar-nav-group-title">Executive Modules</div>
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item active" data-module="module-overview" data-title="Executive Overview">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Overview</span>
+            </div>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-revenue" data-title="Revenue & ARR Intelligence">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              <span>Revenue & ARR</span>
+            </div>
+            <span class="sidebar-badge">+18.4%</span>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-customers" data-title="Customer Acquisition & LTV">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <span>Customer LTV</span>
+            </div>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-runway" data-title="Runway & Cash Velocity">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              <span>Runway & Cash</span>
+            </div>
+          </li>
+          <li class="sidebar-nav-item" data-module="module-investors" data-title="Investor & Board Reports">
+            <div class="sidebar-nav-item-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span>Investor Reports</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Sidebar Bottom Action (Only Sign Out Button) -->
+    <div class="sidebar-bottom-action">
+      <button class="sidebar-signout-btn logout-action-btn" type="button" aria-label="Sign Out">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <div class="dash-main">
+    <!-- Topbar -->
+    <header class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button class="dash-sidebar-mobile-toggle" id="dashSidebarToggle" aria-label="Toggle sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="dash-topbar-title-wrap">
+          <h2 class="dash-page-title">Executive Overview</h2>
+          <span class="dash-page-breadcrumb">Dashboard / Overview</span>
+        </div>
+      </div>
+
+      <div class="dash-topbar-right">
+
+        <!-- Notification Bell (Navigates to 404) -->
+        <div style="position: relative;">
+          <a href="404.html" class="notification-bell-btn" id="notifDropdownBtn" aria-label="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="notification-badge-dot"></span>
+          </a>
+
+          <div class="dropdown-menu-card" id="notifDropdownMenu">
+            <div class="dropdown-header">
+              <span>Executive Notifications</span>
+              <span style="font-size: 0.72rem; color: #10b981; font-weight: normal;">3 Unread</span>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon-circle" style="color: #10b981;">$</div>
+              <div class="notif-text">
+                <div class="notif-title">Enterprise Contract Won</div>
+                <div>HyperScale signed $120,000 annual contract.</div>
+                <div class="notif-time">14 mins ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon-circle" style="color: #60a5fa;">▲</div>
+              <div class="notif-text">
+                <div class="notif-title">ARR Target Achieved</div>
+                <div>Monthly ARR surpassed $140,000 threshold (+18.4%).</div>
+                <div class="notif-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon-circle" style="color: #f59e0b;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="notif-text">
+                <div class="notif-title">Board Deck Reminder</div>
+                <div>Q3 Investor reporting deck due in 4 days.</div>
+                <div class="notif-time">Yesterday</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Dropdown Trigger -->
+        <div style="position: relative;">
+          <button class="profile-trigger-btn" id="profileDropdownBtn">
+            <div class="profile-trigger-avatar dyn-user-initials">MV</div>
+            <span class="profile-trigger-name dyn-user-name">Marcus Vance</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+
+          <div class="profile-dropdown-card" id="profileDropdownMenu">
+            <div class="profile-dropdown-userinfo">
+              <div class="profile-dd-name dyn-user-name">Marcus Vance</div>
+              <div class="profile-dd-email dyn-user-email">marcus.vance@gmail.com</div>
+              <span class="profile-dd-role dyn-user-role">Founder & Executive</span>
+            </div>
+            <div style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="dashboard-engineer.html" style="font-size: 0.82rem; font-weight: 600; color: #8C4F27; text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+                <span>Switch to Engineer View</span>
+                <span>&rarr;</span>
+              </a>
+              <button class="logout-action-btn" type="button" style="background: none; border: none; padding: 0.25rem 0; font-size: 0.82rem; font-weight: 600; color: #ef4444; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Modules -->
+    <main class="dash-content">
+      <!-- ==========================================================================
+           MODULE 1: OVERVIEW (Default)
+           ========================================================================== -->
+      <section class="dash-module-section active" id="module-overview">
+        <!-- Welcome Banner -->
+        <div class="dash-welcome-banner">
+          <div>
+            <h1 class="dash-welcome-title">Welcome back, <span class="dyn-user-name">Marcus</span></h1>
+            <p class="dash-welcome-desc">Stackly ARR grew +18.4% this month. All 4 financial runway metrics exceed forecast.</p>
+          </div>
+          <div class="dash-banner-actions">
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Export CSV</span>
+            </button>
+            <a href="404.html" class="btn btn-primary btn-sm">
+              <span>View Infra Health →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 KPI Summary Cards -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">Monthly Recurring Rev (MRR)</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">$142,500</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge positive">▲ +14.2%</span>
+              <span class="trend-subtext">vs last month ($124.8k)</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">Annual Run Rate (ARR)</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">$1,710,000</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge positive">▲ +38.5% YoY</span>
+              <span class="trend-subtext">On track for $2.4M target</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">Customer LTV : CAC</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">5.2x Ratio</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge positive">CAC $184</span>
+              <span class="trend-subtext">LTV $28,400</span>
+            </div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-header">
+              <span class="kpi-card-label">Cash Runway Remaining</span>
+              <div class="kpi-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              </div>
+            </div>
+            <div class="kpi-card-value">28 Months</div>
+            <div class="kpi-card-footer">
+              <span class="trend-badge neutral">$3.42M Balance</span>
+              <span class="trend-subtext">Burn: $82k/mo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid Row 1 -->
+        <div class="charts-grid-row">
+          <!-- Line Graph: ARR Trajectory -->
+          <div class="chart-panel-card">
+            <div class="chart-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>Annual Recurring Revenue (ARR) Growth</h3>
+                <p>Trailing 12-month trajectory with compound monthly expansion</p>
+              </div>
+              <div class="chart-controls" id="revenueTimeframes">
+                <button class="chart-btn" data-period="7D">7D</button>
+                <button class="chart-btn" data-period="30D">30D</button>
+                <button class="chart-btn active" data-period="12M">12M</button>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="founderRevenueChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Donut / Pie Chart: Revenue Tier Breakdown -->
+          <div class="chart-panel-card">
+            <div class="chart-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>Revenue by Tier</h3>
+                <p>Contract value segmentation</p>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="founderTierChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid Row 2: Sales Funnel Bar Chart -->
+        <div class="charts-grid-row equal">
+          <div class="chart-panel-card">
+            <div class="chart-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>Quarterly Deal Funnel</h3>
+                <p>Lead conversion stages through Closed-Won</p>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="founderFunnelChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Enterprise Customers Table -->
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div class="chart-panel-title-wrap">
+                <h3>High-Value Accounts</h3>
+                <p>Key customer accounts contributing to ARR</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export</button>
+            </div>
+            <div class="data-table-responsive">
+              <table class="modern-table">
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Plan Tier</th>
+                    <th>ARR</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Stripe Inc.</strong></td>
+                    <td>Enterprise Custom</td>
+                    <td>$120,000</td>
+                    <td><span class="table-status-pill success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>NexaAI Labs</strong></td>
+                    <td>Scale Pro</td>
+                    <td>$48,000</td>
+                    <td><span class="table-status-pill success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vertex Payments</strong></td>
+                    <td>Growth Tier</td>
+                    <td>$24,000</td>
+                    <td><span class="table-status-pill success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Aura Cloud</strong></td>
+                    <td>Enterprise</td>
+                    <td>$64,000</td>
+                    <td><span class="table-status-pill info">Upgrading</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 2: REVENUE & ARR INTELLIGENCE (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-revenue">
+        <!-- Section 1: Revenue & Contract KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Annual Recurring Revenue (ARR)</span></div>
+            <div class="kpi-card-value">$4,824,000</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">▲ +18.4% YoY</span><span class="trend-subtext">On track for $6M EOY</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Net Monthly Revenue (MRR)</span></div>
+            <div class="kpi-card-value">$402,000</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">▲ +$38.5K new MRR</span><span class="trend-subtext">This calendar month</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Avg Revenue Per Account (ARPA)</span></div>
+            <div class="kpi-card-value">$1,995 /mo</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">▲ +11.8% expansion</span><span class="trend-subtext">Multi-pod uptake</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Average Contract Value (ACV)</span></div>
+            <div class="kpi-card-value">$23,940 /yr</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">▲ 88% annual prepay</span><span class="trend-subtext">Upfront cash flow</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Revenue Tier Segmentation & Contract Milestones -->
+        <div class="module-sub-grid">
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Revenue by Subscription Tier</h3>
+                <p>Contract value distribution across customer segments</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>Enterprise Dedicated ($899+/mo)</span>
+                  <span>$2,800,000 ARR (58.0%)</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 58%; background: #000000;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>Growth Unicorn ($499/mo)</span>
+                  <span>$1,350,000 ARR (28.0%)</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 28%; background: #3b82f6;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>Starter Scale ($299/mo)</span>
+                  <span>$674,000 ARR (14.0%)</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 14%; background: #10b981;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Quarterly Growth Targets</h3>
+                <p>Milestone targets established with Series A syndicate</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="scenario-card highlight" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="font-size: 0.95rem;">Q4 ARR Goal: $5.20M</strong>
+                  <span class="table-status-pill success">92.8% Completed</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Requires $376K additional net ARR before December 31 closing date.</p>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <strong style="font-size: 0.95rem;">FY27 Expansion Goal: $10.0M</strong>
+                  <span class="table-status-pill info">On Trajectory</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem;">Supported by upcoming EU and APAC datacenter partner launches.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Detailed ARR Cohort Net Dollar Retention Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Detailed ARR Cohort Analysis (Net Dollar Retention)</h3>
+              <p>Expansion compounding across historical customer onboarding cohorts</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.exportDashboardData('csv')">Export Cohort CSV</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Cohort Month</th>
+                  <th>New Accounts</th>
+                  <th>Initial ARR</th>
+                  <th>Net Retention (NDR)</th>
+                  <th>Current Annual Run-Rate</th>
+                  <th>Expansion Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>January 2026</td>
+                  <td>28 Startups</td>
+                  <td>$56,000</td>
+                  <td><strong>142%</strong></td>
+                  <td>$79,520</td>
+                  <td><span class="table-status-pill success">Accelerating</span></td>
+                </tr>
+                <tr>
+                  <td>February 2026</td>
+                  <td>34 Startups</td>
+                  <td>$68,000</td>
+                  <td><strong>138%</strong></td>
+                  <td>$93,840</td>
+                  <td><span class="table-status-pill success">Accelerating</span></td>
+                </tr>
+                <tr>
+                  <td>March 2026</td>
+                  <td>42 Startups</td>
+                  <td>$84,000</td>
+                  <td><strong>148%</strong></td>
+                  <td>$124,320</td>
+                  <td><span class="table-status-pill success">High Expansion</span></td>
+                </tr>
+                <tr>
+                  <td>April 2026</td>
+                  <td>49 Startups</td>
+                  <td>$98,000</td>
+                  <td><strong>152%</strong></td>
+                  <td>$148,960</td>
+                  <td><span class="table-status-pill success">High Expansion</span></td>
+                </tr>
+                <tr>
+                  <td>May 2026</td>
+                  <td>56 Startups</td>
+                  <td>$112,000</td>
+                  <td><strong>144%</strong></td>
+                  <td>$161,280</td>
+                  <td><span class="table-status-pill success">Accelerating</span></td>
+                </tr>
+                <tr>
+                  <td>June 2026</td>
+                  <td>64 Startups</td>
+                  <td>$128,000</td>
+                  <td><strong>150%</strong></td>
+                  <td>$192,000</td>
+                  <td><span class="table-status-pill success">High Expansion</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Top Enterprise Expansion Accounts & Billing Invoices -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Enterprise Accounts & Expansion Pipeline</h3>
+              <p>Top revenue-generating corporate accounts with renewal and billing schedules</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Download Statement</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Account Name</th>
+                  <th>Contract Tier</th>
+                  <th>Billing Frequency</th>
+                  <th>ARR Contribution</th>
+                  <th>Renewal Date</th>
+                  <th>Expansion Potential</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Stripe Inc.</strong></td>
+                  <td>Enterprise Custom</td>
+                  <td>Annual Upfront</td>
+                  <td>$120,000</td>
+                  <td>January 15, 2027</td>
+                  <td><span class="table-status-pill success">+40% (New APAC Pods)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>NexaAI Labs</strong></td>
+                  <td>Scale Pro</td>
+                  <td>Annual Upfront</td>
+                  <td>$48,000</td>
+                  <td>March 01, 2027</td>
+                  <td><span class="table-status-pill success">+25% (GPU Mesh)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Vertex Payments</strong></td>
+                  <td>Enterprise Custom</td>
+                  <td>Annual Upfront</td>
+                  <td>$64,000</td>
+                  <td>April 12, 2027</td>
+                  <td><span class="table-status-pill info">Upgrading to Tier 1</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Aura Cloud Infrastructure</strong></td>
+                  <td>Enterprise</td>
+                  <td>Annual Upfront</td>
+                  <td>$92,000</td>
+                  <td>February 20, 2027</td>
+                  <td><span class="table-status-pill success">+50% (Telemetry Ingest)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 3: CUSTOMER ACQUISITION & LTV (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-customers">
+        <!-- Section 1: Customer Unit Economics KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Customer Lifetime Value (LTV)</span></div>
+            <div class="kpi-card-value">$74,800</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">18.2x LTV:CAC Ratio</span><span class="trend-subtext">Venture benchmark 3x</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Customer Acquisition Cost (CAC)</span></div>
+            <div class="kpi-card-value">$4,110</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">6.2 mo Payback</span><span class="trend-subtext">Industry median 14.8 mo</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Active Paying Accounts</span></div>
+            <div class="kpi-card-value">2,418</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">+118 this month</span><span class="trend-subtext">Across 42 countries</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Net Promoter Score (NPS)</span></div>
+            <div class="kpi-card-value">74 NPS</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">World Class</span><span class="trend-subtext">Based on 680 responses</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Acquisition Funnel & Payback Velocity -->
+        <div class="module-sub-grid">
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Growth & Conversion Funnel</h3>
+                <p>30-day conversion efficiency through paying customers</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.15rem;">
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>1. Website Traffic</span>
+                  <span>148,000 visits</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 100%; background: #94a3b8;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>2. Developer Signups</span>
+                  <span>12,400 signups (8.4%)</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 65%; background: #3b82f6;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>3. Active Workspaces</span>
+                  <span>5,600 teams (45.2%)</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 42%; background: #6366f1;"></div></div>
+              </div>
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.35rem;">
+                  <span>4. Paid Accounts</span>
+                  <span>2,418 accounts (43.2%)</span>
+                </div>
+                <div class="metric-progress-bar"><div class="metric-progress-fill" style="width: 25%; background: #10b981;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="data-panel-card" style="margin-bottom: 0;">
+            <div class="data-panel-header">
+              <div>
+                <h3>Unit Margin & Cohort Health</h3>
+                <p>Gross margin efficiency across compute tiers</p>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="scenario-card" style="padding: 1.25rem;">
+                <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Gross Margin</div>
+                <div style="font-size: 2rem; font-weight: 800; color: #000000; font-family: var(--font-heading); margin: 0.25rem 0;">84.2%</div>
+                <p style="font-size: 0.78rem; color: #10b981; font-weight: 600;">+2.4% vs last quarter</p>
+              </div>
+              <div class="scenario-card" style="padding: 1.25rem;">
+                <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Logo Churn Rate</div>
+                <div style="font-size: 2rem; font-weight: 800; color: #000000; font-family: var(--font-heading); margin: 0.25rem 0;">0.72%</div>
+                <p style="font-size: 0.78rem; color: #10b981; font-weight: 600;">Industry-leading low</p>
+              </div>
+            </div>
+            <div class="dash-callout-card" style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-sm); font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+              <strong>Payback Insight:</strong> Automated self-serve onboarding reduced blended CAC from $5,800 to $4,110 while accelerating upfront cash collection.
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Enterprise Customer Health & Engagement Scores -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Customer Health & Usage Index</h3>
+              <p>Continuous telemetry assessing active adoption and renewal probability</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export Health Matrix</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Customer Account</th>
+                  <th>Active Seats</th>
+                  <th>Telemetry Events/Day</th>
+                  <th>Health Score</th>
+                  <th>Contract Renewal</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Stripe Inc.</strong></td>
+                  <td>142 Engineers</td>
+                  <td>42.8M Events</td>
+                  <td><span class="status-badge-outline" style="border-color: #10b981; color: #10b981;">99 / 100</span></td>
+                  <td>Q1 2027</td>
+                  <td><span class="table-status-pill success">Champion</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Supabase Cloud</strong></td>
+                  <td>68 Engineers</td>
+                  <td>18.4M Events</td>
+                  <td><span class="status-badge-outline" style="border-color: #10b981; color: #10b981;">97 / 100</span></td>
+                  <td>Q2 2027</td>
+                  <td><span class="table-status-pill success">Champion</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Raycast Technologies</strong></td>
+                  <td>34 Engineers</td>
+                  <td>8.6M Events</td>
+                  <td><span class="status-badge-outline" style="border-color: #10b981; color: #10b981;">98 / 100</span></td>
+                  <td>Q1 2027</td>
+                  <td><span class="table-status-pill success">Champion</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Vercel Ecosystems</strong></td>
+                  <td>88 Engineers</td>
+                  <td>26.2M Events</td>
+                  <td><span class="status-badge-outline" style="border-color: #10b981; color: #10b981;">95 / 100</span></td>
+                  <td>Q3 2027</td>
+                  <td><span class="table-status-pill success">Champion</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Churn Prevention & Account Expansion Opportunities -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Proactive Upsell & Expansion Signals</h3>
+              <p>Accounts approaching Kubernetes pod quotas and telemetry tier thresholds</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">Trigger Expansion Email</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Account</th>
+                  <th>Current Quota Utilization</th>
+                  <th>Trigger Flag</th>
+                  <th>Recommended Tier</th>
+                  <th>Estimated ARR Boost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>HyperFlow Data</strong></td>
+                  <td>94% of 32 Pods</td>
+                  <td>Pod Limit Approaching</td>
+                  <td>Growth Unicorn Tier</td>
+                  <td><strong>+$6,000 /yr</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>OmniAI Robotics</strong></td>
+                  <td>89% of 256 Pods</td>
+                  <td>Multi-Region Cluster Expansion</td>
+                  <td>Enterprise Custom</td>
+                  <td><strong>+$28,000 /yr</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>FinTech Velocity</strong></td>
+                  <td>98% of API Gateway Limit</td>
+                  <td>High Concurrency Peak</td>
+                  <td>Enterprise Dedicated</td>
+                  <td><strong>+$18,000 /yr</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 4: RUNWAY & CASH VELOCITY (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-runway">
+        <!-- Section 1: Treasury & Cash Flow KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Total Cash in Bank</span></div>
+            <div class="kpi-card-value">$3,420,000</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Mercury + SVB</span><span class="trend-subtext">FDIC Insured</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Gross Monthly Burn</span></div>
+            <div class="kpi-card-value">$142,500 /mo</div>
+            <div class="kpi-card-footer"><span class="trend-badge neutral">OPEX + Payroll</span><span class="trend-subtext">Within budget</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Net Monthly Cash Burn</span></div>
+            <div class="kpi-card-value">$82,000 /mo</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Down from $110K</span><span class="trend-subtext">Offset by ARR</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Projected Runway</span></div>
+            <div class="kpi-card-value">28.4 Months</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Zero Financing Risk</span><span class="trend-subtext">Through mid-2028</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Three-Tier Runway Scenario Simulations -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Dynamic Runway Projection Models</h3>
+              <p>Simulated cash runway based on alternative revenue expansion and hiring paces</p>
+            </div>
+          </div>
+          <div class="three-cards-grid" id="runwayScenariosGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+            <div class="scenario-card highlight">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="status-badge-outline" style="border-color: #000; color: #000;">Scenario A</span>
+                <span class="table-status-pill success">Baseline (Active)</span>
+              </div>
+              <h4 style="font-size: 1.25rem; font-family: var(--font-heading); margin-top: 0.5rem;">28.4 Months Runway</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                Maintains current $82k net burn rate with planned addition of 2 distributed systems architects in Q1.
+              </p>
+              <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-subtle); font-size: 0.82rem; font-weight: 700;">
+                Zero capital raise required before 2028.
+              </div>
+            </div>
+
+            <div class="scenario-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="status-badge-outline">Scenario B</span>
+                <span class="table-status-pill info">Aggressive Scale</span>
+              </div>
+              <h4 style="font-size: 1.25rem; font-family: var(--font-heading); margin-top: 0.5rem;">21.6 Months Runway</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                Accelerates hiring by +6 senior cloud engineers and expands enterprise outbound sales team in EMEA.
+              </p>
+              <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-subtle); font-size: 0.82rem; font-weight: 700;">
+                Pre-empts Series B milestone at $10M ARR.
+              </div>
+            </div>
+
+            <div class="scenario-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="status-badge-outline">Scenario C</span>
+                <span class="table-status-pill success">Break-Even Velocity</span>
+              </div>
+              <h4 style="font-size: 1.25rem; font-family: var(--font-heading); margin-top: 0.5rem;">Cash Flow Positive</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                At +20% MoM ARR compounding growth, cash flow break-even is achieved in Month 9 with $2.8M reserves intact.
+              </p>
+              <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-subtle); font-size: 0.82rem; font-weight: 700;">
+                Default Alive status achieved.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Monthly OPEX & Cloud Cost Allocation Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Monthly Operating Expenditures (OPEX Breakdown)</h3>
+              <p>Audited cost categorization across infrastructure, engineering salaries, and SG&A</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export OPEX Audit</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Expense Category</th>
+                  <th>Monthly Budget</th>
+                  <th>Actual Spend</th>
+                  <th>Variance</th>
+                  <th>Primary Vendors</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cloud Compute & Edge Mesh</strong></td>
+                  <td>$38,000</td>
+                  <td>$34,200</td>
+                  <td><span style="color: #10b981; font-weight: 600;">-$3,800 (Favorable)</span></td>
+                  <td>AWS, GCP, Cloudflare</td>
+                  <td><span class="table-status-pill success">Under Budget</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Core Engineering Payroll</strong></td>
+                  <td>$70,000</td>
+                  <td>$68,500</td>
+                  <td><span style="color: #10b981; font-weight: 600;">-$1,500 (Favorable)</span></td>
+                  <td>Gusto / Deel Global</td>
+                  <td><span class="table-status-pill success">On Target</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sales & Marketing</strong></td>
+                  <td>$26,000</td>
+                  <td>$24,800</td>
+                  <td><span style="color: #10b981; font-weight: 600;">-$1,200 (Favorable)</span></td>
+                  <td>HubSpot, LinkedIn, Google</td>
+                  <td><span class="table-status-pill success">On Target</span></td>
+                </tr>
+                <tr>
+                  <td><strong>SOC2 & Security Compliance</strong></td>
+                  <td>$9,000</td>
+                  <td>$8,200</td>
+                  <td><span style="color: #10b981; font-weight: 600;">-$800 (Favorable)</span></td>
+                  <td>Vanta, Mandiant Penetration</td>
+                  <td><span class="table-status-pill success">Audited</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Legal & Administration</strong></td>
+                  <td>$7,000</td>
+                  <td>$6,800</td>
+                  <td><span style="color: #10b981; font-weight: 600;">-$200 (Favorable)</span></td>
+                  <td>Cooley LLP, Pilot Books</td>
+                  <td><span class="table-status-pill success">Audited</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Multi-Bank Treasury Liquidity & Yield Schedule -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Treasury Accounts & Interest Yield Schedule</h3>
+              <p>Risk-free interest income generated via automated short-term US Treasury sweeps</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'">Manage Sweep Rules</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Financial Institution</th>
+                  <th>Account Purpose</th>
+                  <th>Current Balance</th>
+                  <th>Annual Yield (APY)</th>
+                  <th>Monthly Interest Earned</th>
+                  <th>FDIC Sweep Protection</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Mercury Treasury (Morgan Stanley)</strong></td>
+                  <td>Yield Reserves (T-Bills)</td>
+                  <td>$2,200,000</td>
+                  <td><strong>4.85% APY</strong></td>
+                  <td>+$8,890 /mo</td>
+                  <td><span class="table-status-pill success">100% US Treasury Backed</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Silicon Valley Bank (First Citizens)</strong></td>
+                  <td>Primary Operating Checking</td>
+                  <td>$1,220,000</td>
+                  <td>1.20% APY</td>
+                  <td>+$1,220 /mo</td>
+                  <td><span class="table-status-pill success">Covered ($5M Network)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           MODULE 5: INVESTOR & BOARD REPORTS (4 DISTINCT SECTIONS)
+           ========================================================================== -->
+      <section class="dash-module-section" id="module-investors">
+        <!-- Section 1: Venture Capital & Board Overview KPIs -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Total Equity Capital Raised</span></div>
+            <div class="kpi-card-value">$8,500,000</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Seed + Series A</span><span class="trend-subtext">Tier-1 Venture Led</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Post-Money Valuation</span></div>
+            <div class="kpi-card-value">$42,000,000</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Series A Lead: Sequoia</span><span class="trend-subtext">8.7x Multiple</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Rule of 40 Index</span></div>
+            <div class="kpi-card-value">58.4%</div>
+            <div class="kpi-card-footer"><span class="trend-badge positive">Top Decile SaaS</span><span class="trend-subtext">38% ARR + 20.4% FCF</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-card-header"><span class="kpi-card-label">Unallocated Option Pool</span></div>
+            <div class="kpi-card-value">14.2% ESOP</div>
+            <div class="kpi-card-footer"><span class="trend-badge neutral">Fully Diluted</span><span class="trend-subtext">Reserved for Leads</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Fully Diluted Series A Cap Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Fully Diluted Capitalization Table (Cap Table)</h3>
+              <p>Legal share class distribution certified by legal counsel</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export Cap Table CSV</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Shareholder Group</th>
+                  <th>Share Class</th>
+                  <th>Number of Shares</th>
+                  <th>Ownership %</th>
+                  <th>Board Representation</th>
+                  <th>Liquidation Preference</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Founders & Executive Team</strong></td>
+                  <td>Common Stock</td>
+                  <td>5,200,000</td>
+                  <td><strong>52.0%</strong></td>
+                  <td>2 Board Seats (Marcus Vance, Elena Rostova)</td>
+                  <td>Standard Junior</td>
+                </tr>
+                <tr>
+                  <td><strong>Sequoia Capital (Series A Lead)</strong></td>
+                  <td>Series A Preferred</td>
+                  <td>2,000,000</td>
+                  <td><strong>20.0%</strong></td>
+                  <td>1 Board Seat (Partner Representative)</td>
+                  <td>1x Non-Participating</td>
+                </tr>
+                <tr>
+                  <td><strong>Index Ventures (Seed & Series A)</strong></td>
+                  <td>Series Seed Preferred</td>
+                  <td>1,380,000</td>
+                  <td><strong>13.8%</strong></td>
+                  <td>Board Observer Seat</td>
+                  <td>1x Non-Participating</td>
+                </tr>
+                <tr>
+                  <td><strong>Employee Stock Option Pool (ESOP)</strong></td>
+                  <td>Common Options</td>
+                  <td>1,420,000</td>
+                  <td><strong>14.2%</strong></td>
+                  <td>Non-Voting Pool</td>
+                  <td>Standard Junior</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 3: Board Meeting Minutes & Governance Reports Table -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Audited Board Packages & Compliance Filings</h3>
+              <p>Official investor packets verified by PwC and Cooley LLP</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.exportDashboardData('csv')">Generate Q3 Package</button>
+          </div>
+          <div class="data-table-responsive">
+            <table class="modern-table">
+              <thead>
+                <tr>
+                  <th>Report Title</th>
+                  <th>Reporting Period</th>
+                  <th>Certified Auditor</th>
+                  <th>File Format</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Q3 2026 Board of Directors Deck</strong></td>
+                  <td>Jul 01 - Sep 30, 2026</td>
+                  <td>Board Approved</td>
+                  <td>PDF (32 Pages)</td>
+                  <td><button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Audited GAAP Financial Statements</strong></td>
+                  <td>FY26 Mid-Year Review</td>
+                  <td>PwC Global</td>
+                  <td>PDF + Excel</td>
+                  <td><button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>SOC2 Type II Annual Security Certification</strong></td>
+                  <td>Continuous 2026 Audit</td>
+                  <td>Schellman & Co.</td>
+                  <td>PDF Certificate</td>
+                  <td><button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Series A Investor Rights Agreement</strong></td>
+                  <td>Executed Financing</td>
+                  <td>Cooley LLP</td>
+                  <td>Legal Document</td>
+                  <td><button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Download PDF</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Quarterly Shareholder Letter & Strategic Milestones -->
+        <div class="data-panel-card">
+          <div class="data-panel-header">
+            <div>
+              <h3>Executive Shareholder Letter (Q3 Retrospective)</h3>
+              <p>Dispatch from Marcus Vance (CEO & Co-Founder) to shareholders</p>
+            </div>
+          </div>
+          <div style="padding: 1rem 0; font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary);">
+            <p style="margin-bottom: 1rem;">
+              <strong>To our Partners & Shareholders,</strong><br>
+              In Q3 2026, Stackly achieved record ARR expansion, crossing $4.82M ARR while maintaining 84.2% software gross margins. Our autonomous multi-cloud Kubernetes engine achieved 99.999% SLA across 42 countries with zero unplanned downtime.
+            </p>
+            <div class="three-cards-grid milestones-grid" id="milestonesGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.25rem;">
+              <div class="scenario-card highlight" style="padding: 1rem;">
+                <div style="font-weight: 700; color: #000; margin-bottom: 0.25rem;">✓ Milestone 01</div>
+                <div style="font-size: 0.82rem;">Autonomous mesh failover shipped with sub-1.5s multi-cloud re-routing.</div>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="font-weight: 700; color: #000; margin-bottom: 0.25rem;">✓ Milestone 02</div>
+                <div style="font-size: 0.82rem;">Crossed 2,400 active scaleup customer accounts with 142% net retention.</div>
+              </div>
+              <div class="scenario-card" style="padding: 1rem;">
+                <div style="font-weight: 700; color: #000; margin-bottom: 0.25rem;">✓ Milestone 03</div>
+                <div style="font-size: 0.82rem;">28.4 Months cash runway remaining with zero near-term financing needs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

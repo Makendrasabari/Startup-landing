@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Engineering Dispatches — Stackly</title>
+  <meta name="description" content="Technical blueprints, cloud architecture insights, and venture growth playbooks from the Stackly engineering team.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets (Cache Busted) -->
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <!-- Lenis Smooth Scrolling Engine -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js?v=5.2" defer></script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrap">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="preloader-logo-img">
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <span class="preloader-tagline">Loading Stackly Dispatches...</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="topHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="brand-logo">
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary btn-sm btn-desktop">Log In</a>
+        <button class="mobile-toggle" aria-label="Toggle mobile menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="mobile-nav" id="mobileNavMenu" aria-hidden="true">
+    <div class="mobile-nav-topbar">
+      <a href="index.html" class="mobile-nav-brand" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="blog.html" class="mobile-nav-link active">Blog</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </div>
+      <a href="login.html" class="btn btn-primary btn-lg mobile-nav-cta">
+        <span>Log In to Stackly</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Page Hero with Computing & Hardware Background Image (NO white box, centered content) -->
+    <section class="page-hero page-hero-blog">
+      <div class="container">
+        <div class="page-hero-clean-center text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Knowledge & Dispatches</span>
+          </div>
+          <h1 class="page-hero-title">
+            Engineering breakdowns & <br><span class="highlight-text">startup scaling playbooks.</span>
+          </h1>
+          <p class="page-hero-desc">
+            Deep-dive architecture tutorials, distributed systems design patterns, and executive ARR modeling from engineers who have scaled to tens of millions of users.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Post (Large Visual Showcase with Split & Join Animation) -->
+    <section class="blog-featured-section" id="featuredSection" style="padding: 4.5rem 0 2.5rem; background: #ffffff; overflow-x: clip;">
+      <div class="container">
+        <div class="featured-article-card" id="featuredArticleCard">
+          <div class="featured-card-left" id="featuredCardLeft">
+            <img src="assets/blog_featured.webp" alt="Cloud Infrastructure Server Rack Architecture" class="featured-real-img">
+            <span class="featured-badge-pill">Production Architecture</span>
+          </div>
+          <div class="featured-card-right" id="featuredCardRight">
+            <div class="featured-meta-pill">
+              <span class="featured-tag">Featured Guide</span>
+              <span class="featured-date">October 14, 2026 &middot; 10 min read</span>
+            </div>
+            <h2 class="featured-article-title" id="featuredArticleTitle">
+              <a href="404.html">Architecting Multi-Cloud Kubernetes for Zero-Egress Bill Spikes</a>
+            </h2>
+            <p class="featured-article-desc" id="featuredArticleDesc">
+              Learn how we configure VPC mesh peering between AWS us-east-1 and GCP europe-west1 with intelligent packet deduplication to eliminate cross-cloud egress penalties.
+            </p>
+            <div class="featured-article-footer">
+              <div class="featured-author-info">
+                <img src="assets/author_elena.webp" alt="Elena Rostova" class="featured-author-avatar">
+                <div>
+                  <div class="featured-author-name">Elena Rostova</div>
+                  <div class="featured-author-role">Chief Cloud Architect</div>
+                </div>
+              </div>
+              <a href="404.html" class="btn btn-primary btn-sm featured-cta-btn">Read Article →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Grid (6 Full Image Cards with Shuffle & Arrange) -->
+    <section class="blog-articles-section" id="blogArticlesSection" style="padding: 4rem 0 6rem; background: #ffffff;">
+      <div class="container">
+        <div class="section-header-wrap" style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <div class="section-label">
+              <span class="dot"></span>
+              <span>Engineering Blueprints & Case Studies</span>
+            </div>
+            <h2 class="section-title" id="blogGridTitle" style="font-size: clamp(1.85rem, 3vw, 2.5rem); margin-bottom: 0;">
+              Latest architectural breakdowns from our core team.
+            </h2>
+          </div>
+        </div>
+        <div class="blog-grid" id="blogGrid">
+          <!-- Article 1 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_saas.webp" alt="SaaS Metrics" class="blog-img">
+              <span class="blog-category-badge">Growth</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Oct 11, 2026</span> &middot; <span>7 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">The SaaS Metrics That Actually Impress Series A Lead Investors</a></h3>
+              <p class="blog-excerpt">Why net retention rate (NDR) and CAC payback efficiency outshine top-line vanity metrics during venture diligence.</p>
+              <div class="blog-author">
+                <img src="assets/author_marcus.webp" alt="Marcus Vance" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>Marcus Vance</h5>
+                  <span>CEO & Co-Founder</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_zerotrust.webp" alt="Zero Trust Security" class="blog-img">
+              <span class="blog-category-badge">Security</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Oct 06, 2026</span> &middot; <span>6 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">Zero Trust mTLS 1.3 in High-Traffic Production Environments</a></h3>
+              <p class="blog-excerpt">Real-world cryptographic benchmark measurements and TLS handshake offloading at the network edge.</p>
+              <div class="blog-author">
+                <img src="assets/author_sophia.webp" alt="Sophia Chen" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>Sophia Chen</h5>
+                  <span>Head of Security</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_apm.webp" alt="APM Tracing" class="blog-img">
+              <span class="blog-category-badge">DevOps</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Sep 28, 2026</span> &middot; <span>5 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">Why Distributed Tracing Fails at 50,000 Requests Per Second</a></h3>
+              <p class="blog-excerpt">How adaptive head-based sampling and ring buffer memory structures prevent observability overhead.</p>
+              <div class="blog-author">
+                <img src="assets/author_david.webp" alt="David Kim" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>David Kim</h5>
+                  <span>VP of Engineering</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_database.webp" alt="Database Migrations" class="blog-img">
+              <span class="blog-category-badge">Database</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Sep 21, 2026</span> &middot; <span>8 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">Zero-Downtime PostgreSQL Schema Migrations at Scale</a></h3>
+              <p class="blog-excerpt">Lock contention avoidance, expand/contract patterns, and safe foreign key index construction.</p>
+              <div class="blog-author">
+                <img src="assets/author_elena.webp" alt="Elena Rostova" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>Elena Rostova</h5>
+                  <span>Chief Cloud Architect</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_growth.webp" alt="Startup Growth" class="blog-img">
+              <span class="blog-category-badge">Founders</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Sep 14, 2026</span> &middot; <span>9 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">From Seed to Series A: The Essential Infrastructure Checklist</a></h3>
+              <p class="blog-excerpt">Everything a technical founder must configure before opening their next financing round.</p>
+              <div class="blog-author">
+                <img src="assets/author_marcus.webp" alt="Marcus Vance" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>Marcus Vance</h5>
+                  <span>CEO & Co-Founder</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="blog-card">
+            <div class="blog-image-wrap">
+              <img src="assets/blog_speed.webp" alt="CI/CD Speed" class="blog-img">
+              <span class="blog-category-badge">CI/CD</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>Sep 05, 2026</span> &middot; <span>6 min read</span>
+              </div>
+              <h3 class="blog-title"><a href="404.html">Shaving 14 Minutes Off Docker Container Build Pipelines</a></h3>
+              <p class="blog-excerpt">Multi-stage cache mounts, BuildKit daemon tuning, and distributed remote artifact registries.</p>
+              <div class="blog-author">
+                <img src="assets/author_david.webp" alt="David Kim" class="blog-author-img">
+                <div class="blog-author-info">
+                  <h5>David Kim</h5>
+                  <span>VP of Engineering</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Section: Production Architecture Blueprints & Technical Research Papers -->
+    <section class="whitepaper-section" id="whitepapersSection">
+      <div class="container">
+        <div class="section-header text-center center-block" style="margin-bottom: 3.5rem;">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Technical Specifications</span>
+          </div>
+          <h2 class="section-title" id="whitepaperTitle">
+            Production-grade systems <span class="highlight-text">architecture blueprints.</span>
+          </h2>
+          <p class="section-subtitle" id="whitepaperSubtitle">
+            Peer-reviewed engineering research, kernel tuning runbooks, and zero-downtime database migration playbooks authored by Stackly infrastructure architects.
+          </p>
+        </div>
+
+        <div class="whitepaper-grid" id="whitepaperGrid">
+          <!-- Whitepaper Card 1 -->
+          <div class="whitepaper-card">
+            <div class="whitepaper-top">
+              <span class="whitepaper-badge">Networking & Linux</span>
+              <span class="whitepaper-meta">38 Pages &middot; PDF</span>
+            </div>
+            <div class="whitepaper-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <h3 class="whitepaper-card-title">Kernel eBPF Telemetry Ingest & Socket Filtering</h3>
+            <p class="whitepaper-card-desc">Zero-overhead packet inspection across 100Gbps line rates eliminating userspace context switching bottlenecks.</p>
+            <div class="whitepaper-stat-strip">
+              <div><strong>&lt; 0.2ms</strong> P99 Latency</div>
+              <div><strong>100%</strong> Ingest SLA</div>
+            </div>
+            <a href="404.html" class="btn btn-secondary btn-sm whitepaper-cta-btn">Download Whitepaper (PDF) →</a>
+          </div>
+
+          <!-- Whitepaper Card 2 -->
+          <div class="whitepaper-card">
+            <div class="whitepaper-top">
+              <span class="whitepaper-badge">Database & Storage</span>
+              <span class="whitepaper-meta">44 Pages &middot; PDF</span>
+            </div>
+            <div class="whitepaper-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+            <h3 class="whitepaper-card-title">Active-Active Postgres Multi-Region Replication</h3>
+            <p class="whitepaper-card-desc">Conflict-free multi-master replication protocol maintaining ACID guarantees across transatlantic cloud regions.</p>
+            <div class="whitepaper-stat-strip">
+              <div><strong>Zero</strong> Split-Brain</div>
+              <div><strong>Sub-15ms</strong> Sync</div>
+            </div>
+            <a href="404.html" class="btn btn-secondary btn-sm whitepaper-cta-btn">Download Whitepaper (PDF) →</a>
+          </div>
+
+          <!-- Whitepaper Card 3 -->
+          <div class="whitepaper-card">
+            <div class="whitepaper-top">
+              <span class="whitepaper-badge">Kubernetes & Autoscaling</span>
+              <span class="whitepaper-meta">32 Pages &middot; PDF</span>
+            </div>
+            <div class="whitepaper-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3 class="whitepaper-card-title">Sub-12s Node Auto-Provisioning under Spike Loads</h3>
+            <p class="whitepaper-card-desc">Predictive machine-learning horizontal pod autoscaling algorithms eliminating cold start throttling.</p>
+            <div class="whitepaper-stat-strip">
+              <div><strong>11.4s</strong> Boot Time</div>
+              <div><strong>99.999%</strong> Reliability</div>
+            </div>
+            <a href="404.html" class="btn btn-secondary btn-sm whitepaper-cta-btn">Download Whitepaper (PDF) →</a>
+          </div>
+
+          <!-- Whitepaper Card 4 -->
+          <div class="whitepaper-card">
+            <div class="whitepaper-top">
+              <span class="whitepaper-badge">Security & Zero-Trust</span>
+              <span class="whitepaper-meta">28 Pages &middot; PDF</span>
+            </div>
+            <div class="whitepaper-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="whitepaper-card-title">Continuous SOC 2 Type II Automated Evidence Ingest</h3>
+            <p class="whitepaper-card-desc">Cryptographic attestation and immutable audit logging across ephemeral microservice pods with SPIFFE/SPIRE.</p>
+            <div class="whitepaper-stat-strip">
+              <div><strong>100%</strong> Automated</div>
+              <div><strong>PwC & Schellman</strong> Verified</div>
+            </div>
+            <a href="404.html" class="btn btn-secondary btn-sm whitepaper-cta-btn">Download Whitepaper (PDF) →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Banner (Downside Entrance, Letters from Right, Custom Red Error Notification) -->
+    <section class="cta-banner-section" id="blogNewsletterSection">
+      <div class="container">
+        <div class="cta-banner-box" id="blogCtaBox">
+          <h2 class="cta-banner-title">Never miss an engineering dispatch.</h2>
+          <p class="cta-banner-desc">Join 18,000+ senior cloud engineers and tech founders receiving our weekly deep-dive newsletter.</p>
+          <div class="newsletter-form-container">
+            <form id="blogNewsletterForm" novalidate>
+              <div class="newsletter-input-group" id="blogNewsletterGroup">
+                <input type="email" id="blogEmailInput" name="email" class="newsletter-email-input" placeholder="yourname@gmail.com" autocomplete="email" list="blogEmailList">
+                <datalist id="blogEmailList">
+                  <option value="marcus.vance@gmail.com">
+                </datalist>
+                <button type="submit" class="btn btn-secondary newsletter-submit-btn">Subscribe</button>
+              </div>
+              <div class="newsletter-error-msg" id="blogEmailError" style="display: none;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                Please enter the email
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly Home">
+            <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="footer-logo">
+          </a>
+          <p class="footer-caption">
+            The next-generation cloud infrastructure and growth intelligence platform for high-velocity startups.
+          </p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="X (Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="blog.html" class="footer-link">Blog & Insights</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Leadership</a></li>
+            <li><a href="404.html" class="footer-link">Careers</a></li>
+            <li><a href="404.html" class="footer-link">Headquarters</a></li>
+            <li><a href="404.html" class="footer-link">SOC2 Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Stackly Address & Office Details (Replaced Stay Updated) -->
+        <div>
+          <h4 class="footer-col-title">Stackly Headquarters</h4>
+          <div class="footer-address-block">
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>San Francisco HQ</strong><br>
+                500 Howard Street, Suite 400<br>
+                San Francisco, CA 94105
+              </div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div>founders@stackly.io &middot; contact@stackly.io</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div>+1 (415) 890-4820 (24/7 SLA)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Inc. All rights reserved.</div>
+        <div class="system-status-badge">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+          <span>All Global Systems Operational</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

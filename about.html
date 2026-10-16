@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Stackly Cloud Infrastructure</title>
+  <meta name="description" content="Learn about Stackly's mission, leadership team, and global cloud engineering presence.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets (Cache Busted) -->
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <!-- Lenis Smooth Scrolling Engine -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js?v=5.2" defer></script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrap">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="preloader-logo-img">
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <span class="preloader-tagline">Loading About Stackly...</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="topHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="brand-logo">
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary btn-sm btn-desktop">Log In</a>
+        <button class="mobile-toggle" aria-label="Toggle mobile menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobileNavMenu" aria-hidden="true">
+    <div class="mobile-nav-topbar">
+      <a href="index.html" class="mobile-nav-brand" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link active">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </div>
+      <a href="login.html" class="btn btn-primary btn-lg mobile-nav-cta">
+        <span>Log In to Stackly</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Page Hero with Clear Photographic Background (NO white box, centered content) -->
+    <section class="page-hero page-hero-about">
+      <div class="container">
+        <div class="page-hero-clean-center text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Our Story & Mission</span>
+          </div>
+          <h1 class="page-hero-title">
+            We're engineering the foundation for <br><span class="highlight-text">the world's fastest startups.</span>
+          </h1>
+          <p class="page-hero-desc">
+            Founded in San Francisco by veteran distributed systems engineers and venture founders, Stackly was born to eliminate the painful friction between infrastructure operations and executive business intelligence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Visual Showcase -->
+    <section id="missionSection" style="padding: 6rem 0; background: #ffffff;">
+      <div class="container">
+        <div class="about-grid">
+          <div class="mission-text-col">
+            <h2 class="section-title" id="missionTitle">
+              Born out of frustration with <span class="highlight-text">infrastructure sprawl.</span>
+            </h2>
+            <p class="section-subtitle mission-desc-1" style="margin-bottom: 1.5rem;">
+              Before Stackly, engineering leads spent 30% of their sprints maintaining fragmented Terraform files, debugging silent microservice cascades, and fielding questions from executives about cloud hosting bills.
+            </p>
+            <p class="mission-desc-2" style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7;">
+              We asked a simple question: What if cloud orchestration were entirely autonomous, sub-millisecond telemetry were standard, and executive revenue growth were automatically synchronized with compute costs? That question became Stackly.
+            </p>
+
+            <div class="about-stat-cards">
+              <div class="about-stat-card" style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #000000; font-family: var(--font-heading); display: flex; align-items: center; gap: 6px;" id="aboutStatStartups">
+                  2,400+
+                </div>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 0.25rem;">Active Scaleups</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Across 42 countries</div>
+              </div>
+              <div class="about-stat-card" style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #000000; font-family: var(--font-heading); display: flex; align-items: center; gap: 6px;" id="aboutStatArr">
+                  $4.8B+
+                </div>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 0.25rem;">ARR Monitored</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Real-time accuracy</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side Image with 3D Fold & Unfold Animation -->
+          <div class="about-image-card image-fold-wrapper">
+            <div class="image-fold-container" id="imageFoldBox">
+              <!-- Left Fold Leaf -->
+              <div class="fold-leaf fold-leaf-left">
+                <img src="assets/about_founders.webp" alt="Stackly Founders & Engineers Meeting" class="about-img">
+              </div>
+              <!-- Center Crease Seam Glow -->
+              <div class="fold-spine-crease"></div>
+              <!-- Right Fold Leaf -->
+              <div class="fold-leaf fold-leaf-right">
+                <img src="assets/about_founders.webp" alt="Stackly Founders & Engineers Meeting" class="about-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Team Section (Continuous Horizontal Live Runner) -->
+    <section id="leadership" class="leadership-section">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Executive Leadership</span>
+          </div>
+          <h2 class="section-title">
+            Meet the minds behind <span class="highlight-text">Stackly.</span>
+          </h2>
+          <p class="section-subtitle center-block" style="margin-bottom: 2.5rem;">
+            Our team brings decades of combined experience building planetary-scale infrastructure at Stripe, Google Cloud, AWS, and Cloudflare.
+          </p>
+        </div>
+
+        <!-- Continuous Horizontal Live Runner Carousel Track -->
+        <div class="team-marquee-container" id="teamMarquee">
+          <div class="team-marquee-track">
+            <!-- Set 1 (4 Profiles) -->
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_marcus.webp" alt="Marcus Vance" class="team-card-img">
+                <span class="team-role-badge">Founder</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">Marcus Vance</h4>
+                <p class="team-member-role">CEO & Co-Founder</p>
+                <p class="team-member-bio">Former VP of Systems Architecture at HyperScale. 2x YC founder.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_elena.webp" alt="Elena Rostova" class="team-card-img">
+                <span class="team-role-badge">Founder</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">Elena Rostova</h4>
+                <p class="team-member-role">Chief Cloud Architect & Co-Founder</p>
+                <p class="team-member-bio">Distributed mesh specialist. Authored key Kubernetes CNCF proposals.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_sophia.webp" alt="Sophia Chen" class="team-card-img">
+                <span class="team-role-badge">Leadership</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">Sophia Chen</h4>
+                <p class="team-member-role">Head of Security & Trust</p>
+                <p class="team-member-bio">Zero-trust cryptographic protocol designer. Former lead auditor at Mandiant.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_david.webp" alt="David Kim" class="team-card-img">
+                <span class="team-role-badge">Leadership</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">David Kim</h4>
+                <p class="team-member-role">VP of Engineering</p>
+                <p class="team-member-bio">Managed 80+ distributed backend engineers. Built low-latency routing cores.</p>
+              </div>
+            </div>
+
+            <!-- Set 2 (Duplicates for 100% Seamless Infinite Horizontal Runner) -->
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_marcus.webp" alt="Marcus Vance" class="team-card-img">
+                <span class="team-role-badge">Founder</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">Marcus Vance</h4>
+                <p class="team-member-role">CEO & Co-Founder</p>
+                <p class="team-member-bio">Former VP of Systems Architecture at HyperScale. 2x YC founder.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_elena.webp" alt="Elena Rostova" class="team-card-img">
+                <span class="team-role-badge">Founder</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">Elena Rostova</h4>
+                <p class="team-member-role">Chief Cloud Architect & Co-Founder</p>
+                <p class="team-member-bio">Distributed mesh specialist. Authored key Kubernetes CNCF proposals.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_sophia.webp" alt="Sophia Chen" class="team-card-img">
+                <span class="team-role-badge">Leadership</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">Sophia Chen</h4>
+                <p class="team-member-role">Head of Security & Trust</p>
+                <p class="team-member-bio">Zero-trust cryptographic protocol designer. Former lead auditor at Mandiant.</p>
+              </div>
+            </div>
+
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="assets/author_david.webp" alt="David Kim" class="team-card-img">
+                <span class="team-role-badge">Leadership</span>
+              </div>
+              <div class="team-card-body">
+                <h4 class="team-member-name">David Kim</h4>
+                <p class="team-member-role">VP of Engineering</p>
+                <p class="team-member-bio">Managed 80+ distributed backend engineers. Built low-latency routing cores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Presence & Office Locations (With Real City Photography & 3-Card Shuffle) -->
+    <section id="locationsSection" style="padding: 6.5rem 0; background: #ffffff;">
+      <div class="container">
+        <div class="text-center center-block" style="position: relative;">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Global Operations</span>
+          </div>
+          <h2 class="section-title" id="locationsTitle">
+            Operating from world tech capitals.
+          </h2>
+          <p class="section-subtitle center-block" id="locationsSubtitle" style="margin-bottom: 3.5rem;">
+            Our distributed engineering centers maintain 24/7/365 follow-the-sun reliability for all customer clusters.
+          </p>
+        </div>
+
+        <div class="locations-grid" id="locationsGrid">
+          <!-- SF (Card 1: Natural Index 0) -->
+          <div class="location-card" id="locationCardSF" data-card-index="0">
+            <div class="location-img-wrap">
+              <img src="assets/location_sf.webp" alt="San Francisco Office" class="location-img">
+            </div>
+            <div class="location-card-body">
+              <h4 class="location-card-title">San Francisco (HQ)</h4>
+              <p class="location-card-address">500 Howard Street, Suite 400<br>San Francisco, CA 94105 &middot; United States</p>
+              <div class="location-hub-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                <span>Executive & Core R&D Hub</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- London (Card 2: Natural Index 1) -->
+          <div class="location-card" id="locationCardLondon" data-card-index="1">
+            <div class="location-img-wrap">
+              <img src="assets/location_london.webp" alt="London Office" class="location-img">
+            </div>
+            <div class="location-card-body">
+              <h4 class="location-card-title">London</h4>
+              <p class="location-card-address">100 Bishopsgate, 18th Floor<br>London EC2N 4AG &middot; United Kingdom</p>
+              <div class="location-hub-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                <span>EMEA Infrastructure Center</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Singapore (Card 3: Natural Index 2) -->
+          <div class="location-card" id="locationCardSingapore" data-card-index="2">
+            <div class="location-img-wrap">
+              <img src="assets/location_singapore.webp" alt="Singapore Office" class="location-img">
+            </div>
+            <div class="location-card-body">
+              <h4 class="location-card-title">Singapore</h4>
+              <p class="location-card-address">1 Marina Boulevard, Level 28<br>Singapore 018989 &middot; Asia Pacific</p>
+              <div class="location-hub-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                <span>APAC Edge Operations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security & Compliance Section (SOC2 Type II & Zero-Trust Certified) -->
+    <section id="security" class="security-section">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label"><span class="dot"></span> <span>Trust & Governance</span></div>
+          <h2 class="section-title" id="securityTitle">SOC2 Type II & Zero-Trust Certified</h2>
+          <p class="section-subtitle center-block" id="securitySubtitle">Stackly maintains continuous third-party compliance, enterprise penetration testing, and zero-trust mTLS encryption across all clusters.</p>
+        </div>
+
+        <!-- 4 Security & Compliance Architecture Pillars -->
+        <div class="security-grid" id="securityGrid">
+          <!-- Card 1: SOC 2 Type II -->
+          <div class="security-card">
+            <div class="security-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <span class="security-pill">Audited Annually · Schellman</span>
+            <h3 class="security-card-title">SOC 2 Type II Certified</h3>
+            <p class="security-card-desc">Continuous automated compliance monitoring across Security, Availability, and Confidentiality trust principles with zero exceptions reported.</p>
+            <div class="security-tags">
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Type II Report Available Under NDA</span>
+              </div>
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>100% Automated Audit Trail Evidence</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Zero-Trust Hardware Core -->
+          <div class="security-card">
+            <div class="security-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <span class="security-pill">FIPS 140-3 Level 3</span>
+            <h3 class="security-card-title">Zero-Trust Cryptographic Core</h3>
+            <p class="security-card-desc">Every inter-service communication packet is authenticated and encrypted via mutual TLS with ephemeral hardware-backed keys rotated every 60 minutes.</p>
+            <div class="security-tags">
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Hardware HSM Enclave Key Isolation</span>
+              </div>
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Automated 60-Minute Key Rotation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: ISO 27001 & Data Privacy -->
+          <div class="security-card">
+            <div class="security-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <span class="security-pill">ISO/IEC 27001 & 27701</span>
+            <h3 class="security-card-title">ISO 27001 & GDPR Governance</h3>
+            <p class="security-card-desc">Comprehensive Information Security Management System (ISMS) and Privacy Management compliant with EU GDPR, HIPAA, and regional data residency mandates.</p>
+            <div class="security-tags">
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>EU, US & APAC Data Residency Guarantee</span>
+              </div>
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>HIPAA & BAA Execution Support</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Threat Defense & Bug Bounty -->
+          <div class="security-card">
+            <div class="security-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m4 4 16 16"/><circle cx="12" cy="12" r="8"/><path d="m4 20 16-16"/></svg>
+            </div>
+            <span class="security-pill">HackerOne & Mandiant</span>
+            <h3 class="security-card-title">Continuous Threat Defense</h3>
+            <p class="security-card-desc">Quarterly external white-box and black-box penetration testing coupled with a continuous private HackerOne bug bounty program covering 100% of attack surfaces.</p>
+            <div class="security-tags">
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Quarterly Third-Party Greybox Audits</span>
+              </div>
+              <div class="security-tag-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>0 Critical CVEs Reported Since Inception</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Live Audit Status Strip -->
+        <div class="security-status-bar">
+          <div class="security-status-left">
+            <span class="live-pulse-dot" style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></span>
+            <span>Continuous Trust Verification: <strong>All 18 Compliance Controls Active & Passing</strong></span>
+          </div>
+          <a href="404.html" class="btn btn-outline btn-sm" style="border-color: #df9b6d; color: #8C4F27; font-weight: 700;">
+            Request Compliance Package & SOC2 Report &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA & Careers Section (Downside Entrance with Dual 404 Navigation Buttons) -->
+    <section id="careers" class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner-box" id="careersCtaBox">
+          <h2 class="cta-banner-title" id="careersCtaTitle">Build with the Stackly engineering team.</h2>
+          <p class="cta-banner-desc" id="careersCtaDesc">We are hiring exceptional systems architects, distributed engine developers, and product designers worldwide.</p>
+          <div class="cta-btn-group" style="display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <a href="404.html" class="btn btn-secondary btn-lg" style="background: #ffffff; color: #000000; border-color: #ffffff;">View Open Careers</a>
+            <a href="404.html" class="btn btn-outline btn-lg" style="border: 2px solid #df9b6d; color: #df9b6d; background: transparent;">Contact Engineering</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly Home">
+            <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="footer-logo">
+          </a>
+          <p class="footer-caption">
+            The next-generation cloud infrastructure and growth intelligence platform for high-velocity startups.
+          </p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="X (Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="blog.html" class="footer-link">Blog & Insights</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Leadership</a></li>
+            <li><a href="404.html" class="footer-link">Careers</a></li>
+            <li><a href="404.html" class="footer-link">Headquarters</a></li>
+            <li><a href="404.html" class="footer-link">SOC2 Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Stackly Address & Office Details (Replaced Stay Updated) -->
+        <div>
+          <h4 class="footer-col-title">Stackly Headquarters</h4>
+          <div class="footer-address-block">
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>San Francisco HQ</strong><br>
+                500 Howard Street, Suite 400<br>
+                San Francisco, CA 94105
+              </div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div>founders@stackly.io &middot; contact@stackly.io</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div>+1 (415) 890-4820 (24/7 SLA)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Inc. All rights reserved.</div>
+        <div class="system-status-badge">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+          <span>All Global Systems Operational</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

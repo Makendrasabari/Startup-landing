@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Stackly Cloud</title>
+  <meta name="description" content="The page you are looking for does not exist. Return to Stackly home or go back to your previous page.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets (Cache Busted) -->
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <style>
+    /* ==========================================================================
+       STACKLY 404 — Pure Minimalist & High-Performance Error Experience
+       - No Header, No Footer (as requested)
+       - Perfectly Centered Immersive Layout
+       - Animated Cloud Infrastructure Core inside the Naught (0)
+       - "Go to Home" & "Go Back" Action Controls
+       ========================================================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem;
+      background-color: var(--bg-secondary, #fdfbf9);
+      background-image: 
+        radial-gradient(circle at 50% 40%, rgba(140, 79, 39, 0.08) 0%, transparent 68%),
+        radial-gradient(rgba(140, 79, 39, 0.09) 1.2px, transparent 1.2px);
+      background-size: 100% 100%, 30px 30px;
+      color: var(--text-primary, #090d16);
+      font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Decorative Floating Glows */
+    .ambient-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+    .ambient-glow-1 {
+      top: 10%;
+      left: 15%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(140, 79, 39, 0.14) 0%, transparent 70%);
+      animation: floatAura1 16s ease-in-out infinite alternate;
+    }
+    .ambient-glow-2 {
+      bottom: 12%;
+      right: 15%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(217, 119, 6, 0.11) 0%, transparent 70%);
+      animation: floatAura2 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatAura1 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -30px) scale(1.15); }
+    }
+    @keyframes floatAura2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-45px, 25px) scale(1.18); }
+    }
+
+    /* Centered Error Container Card */
+    .error-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 660px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+    }
+
+    /* Prominent Brand Logo Anchor (No Header) */
+    .error-brand-anchor {
+      display: inline-block;
+      margin-bottom: 2.25rem;
+      transition: transform var(--transition-fast, 0.2s);
+    }
+    .error-brand-anchor:hover {
+      transform: translateY(-2px);
+    }
+    .error-brand-img {
+      height: clamp(68px, 9vw, 92px);
+      width: auto;
+      max-height: 105px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      transform: scale(1.42);
+      transform-origin: center center;
+      display: block;
+      transition: transform var(--transition-fast, 0.2s), filter var(--transition-fast, 0.2s);
+    }
+    .error-brand-anchor:hover .error-brand-img {
+      transform: scale(1.48);
+      filter: drop-shadow(0 8px 18px rgba(140, 79, 39, 0.18));
+    }
+
+    /* Status Pill Badge */
+    .error-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.4rem 1.05rem;
+      background: rgba(140, 79, 39, 0.08);
+      border: 1px solid rgba(140, 79, 39, 0.22);
+      border-radius: var(--radius-full, 9999px);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-brown-primary, #8C4F27);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 10px rgba(140, 79, 39, 0.05);
+    }
+    .error-status-pill .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+      animation: alertPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes alertPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    /* 404 Display Row */
+    .error-digits-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.2rem, 1.2vw, 0.8rem);
+      margin-bottom: 1.4rem;
+      user-select: none;
+    }
+    .error-digit {
+      font-family: var(--font-heading, 'Outfit', sans-serif);
+      font-size: clamp(6.2rem, 16vw, 10.2rem);
+      font-weight: 800;
+      line-height: 0.95;
+      color: #090d16;
+      letter-spacing: -0.05em;
+      text-shadow: 0 4px 20px rgba(9, 13, 22, 0.08);
+      transition: transform var(--transition-smooth, 0.3s);
+    }
+    .error-digits-row:hover .error-digit {
+      transform: translateY(-2px);
+    }
+
+    /* Animated Naught (0) Stage Container */
+    .error-naught-stage {
+      position: relative;
+      width: clamp(118px, 15vw, 172px);
+      height: clamp(135px, 17vw, 192px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .error-naught-stage:hover {
+      transform: scale(1.05);
+    }
+    .error-naught-stage:active {
+      transform: scale(0.97);
+    }
+
+    /* SVG Artwork for the Naught (0) */
+    .naught-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 8px 24px rgba(140, 79, 39, 0.16));
+    }
+
+    /* ==========================================================================
+       SVG KEYFRAMED ANIMATIONS (Theme: Cloud Orchestration, Telemetry & Server Nodes)
+       ========================================================================== */
+    
+    /* 1. Outer Telemetry Dash Rotation along the 0 outline */
+    @keyframes energyOrbit {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -520; }
+    }
+    .naught-energy-ring {
+      animation: energyOrbit 12s linear infinite;
+    }
+    .error-naught-stage:hover .naught-energy-ring {
+      animation-duration: 5s;
+    }
+
+    /* 2. Counter-Rotating Inner Coordinate Track */
+    @keyframes counterSpin {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 420; }
+    }
+    .naught-reverse-ring {
+      animation: counterSpin 16s linear infinite;
+    }
+
+    /* 3. 360-degree APM Telemetry Radar Sweep inside the 0 */
+    @keyframes radarSweep {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .naught-radar-beam {
+      transform-origin: 80px 95px;
+      animation: radarSweep 4.2s linear infinite;
+    }
+    .error-naught-stage:hover .naught-radar-beam {
+      animation-duration: 1.8s;
+    }
+
+    /* 4. Multi-tier Cloud Server Stack Levitation */
+    @keyframes serverLevitate {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+    .naught-server-cluster {
+      transform-origin: 80px 95px;
+      animation: serverLevitate 3.4s ease-in-out infinite;
+    }
+
+    /* 5. Server Chassis LEDs Blinking Telemetry */
+    @keyframes ledBlinkGreen {
+      0%, 100% { opacity: 0.95; filter: drop-shadow(0 0 3px #10b981); }
+      45% { opacity: 0.3; filter: none; }
+      55% { opacity: 1; filter: drop-shadow(0 0 5px #10b981); }
+    }
+    @keyframes ledBlinkAmber {
+      0%, 100% { opacity: 0.35; filter: none; }
+      50% { opacity: 1; filter: drop-shadow(0 0 4px #f59e0b); }
+    }
+    @keyframes ledBlinkRed {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px #ef4444); }
+      30% { opacity: 0.25; filter: none; }
+      70% { opacity: 1; filter: drop-shadow(0 0 5px #ef4444); }
+    }
+    .led-green { animation: ledBlinkGreen 1.6s ease-in-out infinite; }
+    .led-amber { animation: ledBlinkAmber 1.2s ease-in-out infinite; }
+    .led-red { animation: ledBlinkRed 0.85s ease-in-out infinite; }
+
+    /* 6. Orbiting Distributed Edge Cluster Nodes (Satellites) */
+    @keyframes orbitNode1 {
+      0% { transform: rotate(0deg) translateX(55px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(55px) rotate(-360deg); }
+    }
+    @keyframes orbitNode2 {
+      0% { transform: rotate(180deg) translateX(64px) rotate(-180deg); }
+      100% { transform: rotate(540deg) translateX(64px) rotate(-540deg); }
+    }
+    .orbit-node-1 {
+      transform-origin: 80px 95px;
+      animation: orbitNode1 8.5s linear infinite;
+    }
+    .orbit-node-2 {
+      transform-origin: 80px 95px;
+      animation: orbitNode2 12s linear infinite reverse;
+    }
+
+    /* 7. Stackly Swirl Logo Float */
+    @keyframes logoPulseGlow {
+      0%, 100% { opacity: 0.9; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.08); filter: drop-shadow(0 0 7px rgba(245, 158, 11, 0.7)); }
+    }
+    .naught-brand-mark {
+      transform-origin: 80px 58px;
+      animation: logoPulseGlow 2.8s ease-in-out infinite;
+    }
+
+    /* 8. Interactive Sonic Ripple Wave on Click */
+    .ping-ripple {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+      margin-left: -5px;
+      border: 2px solid var(--color-brown-primary, #8C4F27);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(1);
+    }
+    .ping-ripple.active {
+      animation: rippleExpand 0.85s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+    }
+    @keyframes rippleExpand {
+      0% { opacity: 0.85; transform: scale(1); border-color: #8C4F27; }
+      100% { opacity: 0; transform: scale(22); border-color: #f59e0b; }
+    }
+
+    /* Copy & Headings */
+    .error-title {
+      font-size: clamp(1.8rem, 3.8vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 0.85rem;
+      color: #090d16;
+      letter-spacing: -0.03em;
+    }
+    .error-description {
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      color: var(--text-secondary, #475569);
+      line-height: 1.65;
+      margin-bottom: 2.25rem;
+      max-width: 530px;
+    }
+
+    /* Action Buttons Group */
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .error-btn {
+      min-width: 180px;
+      font-size: 1rem;
+      padding: 0.95rem 1.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      border-radius: var(--radius-md, 14px);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition-normal, 0.25s);
+    }
+    .error-btn svg {
+      transition: transform var(--transition-fast, 0.2s);
+    }
+    .error-btn-primary:hover svg {
+      transform: scale(1.14);
+    }
+    .error-btn-back:hover svg {
+      transform: translateX(-3px);
+    }
+
+    /* Interactive Telemetry Log / Interactive Tooltip */
+    .error-telemetry-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle, #ebdcd0);
+      border-radius: var(--radius-md, 14px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      font-size: 0.82rem;
+      color: var(--text-muted, #64748b);
+      font-family: var(--font-mono, monospace);
+    }
+    .error-telemetry-text {
+      color: var(--text-secondary, #475569);
+      font-weight: 500;
+    }
+    .ping-highlight {
+      color: var(--color-brown-primary, #8C4F27);
+      font-weight: 700;
+    }
+
+    /* Keyboard Shortcut Hint */
+    .error-shortcut-hint {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted, #94a3b8);
+    }
+    kbd {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.74rem;
+      font-family: inherit;
+      color: #334155;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem 1rem;
+      }
+      .error-brand-img {
+        height: 58px;
+        transform: scale(1.3);
+      }
+      .error-brand-anchor {
+        margin-bottom: 1.5rem;
+      }
+      .error-digits-row {
+        gap: 0.2rem;
+      }
+      .error-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 290px;
+      }
+      .error-btn {
+        width: 100%;
+      }
+      .error-telemetry-box {
+        font-size: 0.74rem;
+        padding: 0.45rem 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Decorative Background Glows -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+
+  <!-- Centered Error Card -->
+  <main class="error-wrapper">
+    
+    <!-- Stackly Brand Logo Link (Clean Anchor, No Bulky Header) -->
+    <a href="index.html" class="error-brand-anchor" aria-label="Return to Stackly Homepage">
+      <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="error-brand-img">
+    </a>
+
+    <!-- Status Badge -->
+    <div class="error-status-pill">
+      <span class="pulse-dot"></span>
+      <span>Cluster Error 404 &middot; Route Missing</span>
+    </div>
+
+    <!-- 404 Digit Row with Custom Animated Naught (0) -->
+    <div class="error-digits-row" aria-label="404 Error Code">
+      
+      <!-- Left Digit 4 -->
+      <span class="error-digit">4</span>
+
+      <!-- Center Digit 0 (Naught) — Animated Stackly Cloud Telemetry Core -->
+      <div class="error-naught-stage" id="naughtInteractiveStage" title="Click to ping Stackly telemetry cluster" aria-label="Animated zero node">
+        <div class="ping-ripple" id="pingRipple"></div>
+        
+        <svg class="naught-svg" viewBox="0 0 160 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Primary Brand Linear Gradient for 0 Border -->
+            <linearGradient id="zeroEnergyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8C4F27"/>
+              <stop offset="45%" stop-color="#d97706"/>
+              <stop offset="80%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#8C4F27"/>
+            </linearGradient>
+
+            <!-- Radar Sweep Conical-like Radial Fade -->
+            <radialGradient id="radarConeGrad" cx="0%" cy="0%" r="100%">
+              <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.45"/>
+              <stop offset="60%" stop-color="#8C4F27" stop-opacity="0.18"/>
+              <stop offset="100%" stop-color="#8C4F27" stop-opacity="0"/>
+            </radialGradient>
+
+            <!-- Server Blade Metallic Fill -->
+            <linearGradient id="serverBladeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2a3346"/>
+              <stop offset="100%" stop-color="#141a24"/>
+            </linearGradient>
+
+            <!-- Brand Flame Gold Accent -->
+            <linearGradient id="brandFlameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d97706"/>
+              <stop offset="50%" stop-color="#8C4F27"/>
+              <stop offset="100%" stop-color="#582B10"/>
+            </linearGradient>
+
+            <!-- Soft Glow Filter -->
+            <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- 1. Ambient Internal Glow within the Zero Core -->
+          <ellipse cx="80" cy="95" rx="58" ry="72" fill="#FAF5F0" />
+          <ellipse cx="80" cy="95" rx="50" ry="64" fill="url(#brandFlameGrad)" opacity="0.08" />
+
+          <!-- 2. The Geometric "0" Base Outer Track (Capsule / Stadium) -->
+          <rect x="12" y="10" width="136" height="170" rx="68" ry="68"
+                fill="none" stroke="#ebdcd0" stroke-width="13" />
+
+          <!-- 3. Animated High-Voltage Telemetry Energy Ring along the "0" -->
+          <rect class="naught-energy-ring" x="12" y="10" width="136" height="170" rx="68" ry="68"
+                fill="none" stroke="url(#zeroEnergyGrad)" stroke-width="13"
+                stroke-linecap="round" stroke-dasharray="140 380" filter="url(#softGlow)" />
+
+          <!-- 4. Inner Concentric Telemetry Orbit Track -->
+          <rect class="naught-reverse-ring" x="26" y="24" width="108" height="142" rx="54" ry="54"
+                fill="none" stroke="#d6c0af" stroke-width="1.8"
+                stroke-dasharray="6 8" opacity="0.75" />
+
+          <!-- 5. 360-degree APM Scanning Radar Sweep Inside 0 -->
+          <g class="naught-radar-beam">
+            <path d="M 80 95 L 80 32 A 63 63 0 0 1 135 65 Z" fill="url(#radarConeGrad)" />
+            <line x1="80" y1="95" x2="135" y2="65" stroke="#8C4F27" stroke-width="2" stroke-linecap="round" opacity="0.85" />
+          </g>
+
+          <!-- 6. Orbiting Distributed Edge Cluster Nodes (Satellites) -->
+          <g class="orbit-node-1">
+            <circle cx="80" cy="95" r="4.5" fill="#8C4F27" filter="url(#softGlow)"/>
+            <circle cx="80" cy="95" r="7.5" fill="none" stroke="#8C4F27" stroke-width="1" opacity="0.4"/>
+          </g>
+          <g class="orbit-node-2">
+            <circle cx="80" cy="95" r="3.5" fill="#f59e0b" filter="url(#softGlow)"/>
+          </g>
+
+          <!-- 7. Center Core: Stackly Cloud Multi-Tier Server Blade Cluster -->
+          <g class="naught-server-cluster">
+            
+            <!-- Floating Stackly S-Flame Emblem -->
+            <g class="naught-brand-mark">
+              <!-- Stackly S-Curve Cloud Emblem Vector -->
+              <path d="M 80 43 C 74 43 69 47 69 53 C 69 59 75 61 78 63 C 82 65 87 67 87 72 C 87 77 82 80 77 79 C 74 78 71 76 70 74 M 80 43 C 86 43 91 47 91 53 C 91 59 85 61 82 63 C 78 65 73 67 73 72" 
+                    fill="none" stroke="url(#brandFlameGrad)" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="80" cy="42" r="2.5" fill="#f59e0b" filter="url(#softGlow)"/>
+            </g>
+
+            <!-- Server Blade 1 (Top Layer) -->
+            <rect x="52" y="76" width="56" height="11" rx="3" fill="url(#serverBladeGrad)" stroke="#8C4F27" stroke-width="1.2"/>
+            <line x1="57" y1="81.5" x2="78" y2="81.5" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+            <circle class="led-green" cx="98" cy="81.5" r="2" fill="#10b981"/>
+            <circle cx="92" cy="81.5" r="1.5" fill="#475569"/>
+
+            <!-- Server Blade 2 (Middle Layer) -->
+            <rect x="52" y="90" width="56" height="11" rx="3" fill="url(#serverBladeGrad)" stroke="#8C4F27" stroke-width="1.2"/>
+            <line x1="57" y1="95.5" x2="78" y2="95.5" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+            <circle class="led-amber" cx="98" cy="95.5" r="2" fill="#f59e0b"/>
+            <circle cx="92" cy="95.5" r="1.5" fill="#475569"/>
+
+            <!-- Server Blade 3 (Bottom Layer — Offline 404 Cluster) -->
+            <rect x="52" y="104" width="56" height="11" rx="3" fill="url(#serverBladeGrad)" stroke="#8C4F27" stroke-width="1.2"/>
+            <line x1="57" y1="109.5" x2="78" y2="109.5" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+            <circle class="led-red" cx="98" cy="109.5" r="2" fill="#ef4444"/>
+            <circle cx="92" cy="109.5" r="1.5" fill="#475569"/>
+
+            <!-- Digital Cluster Telemetry Label -->
+            <text x="80" y="127" text-anchor="middle" font-family="'JetBrains Mono', monospace" 
+                  font-size="6.8" font-weight="700" fill="#8C4F27" letter-spacing="1">NODE 404</text>
+          </g>
+
+          <!-- 8. Outer Coordinate Tick Marks -->
+          <line x1="80" y1="4" x2="80" y2="9" stroke="#8C4F27" stroke-width="2" stroke-linecap="round"/>
+          <line x1="80" y1="181" x2="80" y2="186" stroke="#8C4F27" stroke-width="2" stroke-linecap="round"/>
+          <line x1="6" y1="95" x2="11" y2="95" stroke="#8C4F27" stroke-width="2" stroke-linecap="round"/>
+          <line x1="149" y1="95" x2="154" y2="95" stroke="#8C4F27" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Right Digit 4 -->
+      <span class="error-digit">4</span>
+    </div>
+
+    <!-- Heading & Description -->
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-description">
+      The cloud infrastructure coordinate you requested does not exist, has been de-provisioned, or relocated to another edge cluster region.
+    </p>
+
+    <!-- Action Buttons: "Back to Home" and "Go Back" -->
+    <div class="error-actions">
+      <!-- Button 1: Back to Home -->
+      <a href="index.html" class="btn btn-primary btn-lg error-btn error-btn-primary" id="btnBackHome" aria-label="Back to Home">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Back to Home</span>
+      </a>
+
+      <!-- Button 2: Go Back -->
+      <button type="button" class="btn btn-secondary btn-lg error-btn error-btn-back" id="btnGoBack" onclick="navigateGoBack()">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Go Back</span>
+      </button>
+    </div>
+
+    <!-- Live Telemetry Status Diagnostic Box -->
+    <div class="error-telemetry-box" id="telemetryStatusBox">
+      <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #f59e0b;"></span>
+      <span class="error-telemetry-text" id="telemetryStatusMsg">Telemetry: <span class="ping-highlight">Edge Cluster Scan 0%</span> &middot; ERR_UNRESOLVED_ROUTE</span>
+    </div>
+
+    <!-- Keyboard Shortcut Helper -->
+    <div class="error-shortcut-hint">
+      Quick keys: Press <kbd>Esc</kbd> or <kbd>←</kbd> to go back &middot; <kbd>H</kbd> for Home
+    </div>
+
+  </main>
+
+  <!-- Interactivity Script -->
+  <script>
+    // Navigation: Go Back handler with fallback to home
+    function navigateGoBack() {
+      if (window.history.length > 1 && document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
+        window.history.back();
+      } else if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
+    // Keyboard navigation (Esc / Backspace / ArrowLeft to go back, H for Home)
+    window.addEventListener('keydown', function(e) {
+      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+      if (e.key === 'Escape' || (e.altKey && e.key === 'ArrowLeft')) {
+        navigateGoBack();
+      } else if (e.key === 'h' || e.key === 'H') {
+        window.location.href = 'index.html';
+      }
+    });
+
+    // Interactive Naught Ping Ripple on Click
+    const naughtStage = document.getElementById('naughtInteractiveStage');
+    const ripple = document.getElementById('pingRipple');
+    const telemetryMsg = document.getElementById('telemetryStatusMsg');
+
+    if (naughtStage && ripple) {
+      naughtStage.addEventListener('click', function(e) {
+        // Trigger sonic pulse ripple
+        ripple.classList.remove('active');
+        void ripple.offsetWidth; // Trigger reflow
+        ripple.classList.add('active');
+
+        // Update telemetry status box with live feedback
+        if (telemetryMsg) {
+          const latencies = ['4ms', '8ms', '12ms', '15ms'];
+          const randomLatency = latencies[Math.floor(Math.random() * latencies.length)];
+          telemetryMsg.innerHTML = 'Telemetry: <span class="ping-highlight">Ping broadcasted (' + randomLatency + ')</span> &middot; Cluster Offline';
+          
+          setTimeout(() => {
+            telemetryMsg.innerHTML = 'Telemetry: <span class="ping-highlight">Edge Cluster Scan 0%</span> &middot; ERR_UNRESOLVED_ROUTE';
+          }, 3200);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

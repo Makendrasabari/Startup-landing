@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Solutions — Stackly Cloud</title>
+  <meta name="description" content="Explore Stackly's comprehensive cloud orchestration, distributed APM telemetry, and executive revenue solutions.">
+  <link rel="icon" type="image/webp" href="assets/stacklylogo_18.webp">
+
+  <!-- Core Stylesheets (Cache Busted) -->
+  <link rel="stylesheet" href="css/style.css?v=5.0">
+
+  <!-- Lenis Smooth Scrolling Engine -->
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js?v=5.2" defer></script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrap">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="preloader-logo-img">
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <span class="preloader-tagline">Loading Stackly Services...</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="topHeader">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="brand-logo">
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-primary btn-sm btn-desktop">Log In</a>
+        <button class="mobile-toggle" aria-label="Toggle mobile menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobileNavMenu" aria-hidden="true">
+    <div class="mobile-nav-topbar">
+      <a href="index.html" class="mobile-nav-brand" aria-label="Stackly Home">
+        <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="mobile-nav-logo">
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link active">Services</a>
+        <a href="blog.html" class="mobile-nav-link">Blog</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+      </div>
+      <a href="login.html" class="btn btn-primary btn-lg mobile-nav-cta">
+        <span>Log In to Stackly</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Page Hero with Cloud Datacenter Background Image (NO white box, centered content) -->
+    <section class="page-hero page-hero-services">
+      <div class="container">
+        <div class="page-hero-clean-center text-center center-block">
+          <div class="section-label">
+            <span class="dot"></span>
+            <span>Enterprise Services</span>
+          </div>
+          <h1 class="page-hero-title">
+            Cloud solutions engineered for <br><span class="highlight-text">maximum concurrency & zero downtime.</span>
+          </h1>
+          <p class="page-hero-desc">
+            From self-healing Kubernetes clusters to board-ready revenue models, Stackly delivers end-to-end infrastructure capabilities with guaranteed SLAs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive Services with Rich Visuals -->
+    <section id="servicesDeepDive" style="padding: 6.5rem 0; background: #ffffff;">
+      <div class="container" style="display: flex; flex-direction: column; gap: 6.5rem;">
+        
+        <!-- Service Block 1: Autonomous Cloud Orchestration -->
+        <div class="about-grid" id="service1">
+          <div>
+            <div class="section-label"><span class="dot"></span> Service 01</div>
+            <h2 class="section-title" id="serviceTitle1">Autonomous Cloud Orchestration</h2>
+            <p class="section-subtitle" id="serviceSubtitle1" style="margin-bottom: 1.5rem;">
+              Eliminate manual cluster provisioning. Stackly automatically balances workloads across AWS, GCP, and Azure edge clusters with intelligent cost routing.
+            </p>
+            <ul style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Multi-region auto-scaling in under 1.5 seconds
+              </li>
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>40% cloud hosting savings via dynamic spot instances
+              </li>
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Zero-config Kubernetes mesh with Istio mTLS 1.3
+              </li>
+            </ul>
+            <a href="404.html" class="btn btn-primary">Test in DevOps Dashboard &rarr;</a>
+          </div>
+
+          <!-- Service 1 Image: Rotates into position upon scroll -->
+          <div class="about-image-card service-image-rotate-card">
+            <div class="service-image-rotate-box" id="serviceRotateBox1">
+              <img src="assets/service_cloud.webp" alt="Cloud Orchestration Mesh" class="about-img">
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Block 2: Real-Time APM & Telemetry (Alternating with Left Diagonal Split) -->
+        <div class="about-grid" id="service2" style="direction: rtl;">
+          <div style="direction: ltr;">
+            <div class="section-label"><span class="dot"></span> Service 02</div>
+            <h2 class="section-title" id="serviceTitle2">Real-Time APM & Telemetry</h2>
+            <p class="section-subtitle" id="serviceSubtitle2" style="margin-bottom: 1.5rem;">
+              Instant distributed tracing, live error budgeting, and predictive incident detection powered by our sub-millisecond ingest pipeline.
+            </p>
+            <ul style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Trace every API call with millisecond P99 precision
+              </li>
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Automated Sentry and Datadog webhook synchronizations
+              </li>
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Proactive alert routing to Slack and PagerDuty
+              </li>
+            </ul>
+            <a href="404.html" class="btn btn-primary">Launch Live APM Telemetry &rarr;</a>
+          </div>
+
+          <!-- Service 2 Image: Left Diagonal Split Animation -->
+          <div class="about-image-card diagonal-split-wrapper" style="direction: ltr;">
+            <div class="diagonal-split-container diagonal-split-left" id="diagonalSplitLeftBox">
+              <!-- Top-Left Diagonal Half -->
+              <div class="diagonal-half diagonal-half-top-left">
+                <img src="assets/service_telemetry.webp" alt="Real-Time Telemetry Dashboard" class="about-img">
+              </div>
+              <!-- Diagonal Seam Glow Divider (Left Angle) -->
+              <div class="diagonal-seam-left"></div>
+              <!-- Bottom-Right Diagonal Half -->
+              <div class="diagonal-half diagonal-half-bottom-right">
+                <img src="assets/service_telemetry.webp" alt="Real-Time Telemetry Dashboard" class="about-img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Block 3: Executive Revenue & Runway Intelligence (Right Diagonal Split) -->
+        <div class="about-grid" id="service3">
+          <div>
+            <div class="section-label"><span class="dot"></span> Service 03</div>
+            <h2 class="section-title" id="serviceTitle3">Executive Revenue & Runway Intelligence</h2>
+            <p class="section-subtitle" id="serviceSubtitle3" style="margin-bottom: 1.5rem;">
+              Direct bridge between infrastructure cost and business revenue. See real-time ARR, customer cohort expansion, and runway forecasts updated continuously.
+            </p>
+            <ul style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Real-time ARR & MRR growth tracking
+              </li>
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Unit economics: Gross margin per customer pod
+              </li>
+              <li class="service-feature-item" style="display: flex; align-items: center; gap: 0.65rem; font-weight: 500;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>1-Click Board Deck & Investor statement exports
+              </li>
+            </ul>
+            <a href="404.html" class="btn btn-primary">Open Founder & Exec View &rarr;</a>
+          </div>
+
+          <!-- Service 3 Image: Right Diagonal Split Animation -->
+          <div class="about-image-card diagonal-split-wrapper">
+            <div class="diagonal-split-container diagonal-split-right" id="diagonalSplitRightBox">
+              <!-- Top-Right Diagonal Half -->
+              <div class="diagonal-half diagonal-half-top-right">
+                <img src="assets/service_revenue.webp" alt="Executive Revenue Modeling" class="about-img">
+              </div>
+              <!-- Diagonal Seam Glow Divider (Right Angle) -->
+              <div class="diagonal-seam-right"></div>
+              <!-- Bottom-Left Diagonal Half -->
+              <div class="diagonal-half diagonal-half-bottom-left">
+                <img src="assets/service_revenue.webp" alt="Executive Revenue Modeling" class="about-img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEW RELEVANT SECTION 1: Enterprise SLA & Guaranteed Reliability Matrix -->
+    <section id="serviceSla" class="sla-section">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label"><span class="dot"></span> <span>Enterprise Commitments</span></div>
+          <h2 class="section-title" id="slaTitle">Guaranteed SLAs backed by contractual credits.</h2>
+          <p class="section-subtitle center-block" id="slaSubtitle">Stackly provides mathematically verifiable uptime, deterministic latency, and dedicated systems architect escalations for enterprise scaleups.</p>
+        </div>
+
+        <div class="sla-grid" id="slaGrid">
+          <div class="sla-card">
+            <div class="sla-card-num">99.999%</div>
+            <h3 class="sla-card-title">Multi-Cloud Availability SLA</h3>
+            <p class="sla-card-desc">Contractual uptime guarantee across distributed AWS, GCP, and Azure mesh clusters with automated financial credits.</p>
+            <div class="sla-card-pill">
+              <span class="live-pulse-dot" style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+              <span>&lt;5.26m Max Downtime/Year</span>
+            </div>
+          </div>
+
+          <div class="sla-card">
+            <div class="sla-card-num">&lt;15ms</div>
+            <h3 class="sla-card-title">Global Ingest Telemetry SLA</h3>
+            <p class="sla-card-desc">Sub-millisecond distributed telemetry processing delivered at 85+ edge PoPs worldwide with zero sample degradation.</p>
+            <div class="sla-card-pill">
+              <span class="live-pulse-dot" style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+              <span>P99 Edge Ingest Verified</span>
+            </div>
+          </div>
+
+          <div class="sla-card">
+            <div class="sla-card-num">60s</div>
+            <h3 class="sla-card-title">Disaster Recovery RTO</h3>
+            <p class="sla-card-desc">Automated cross-cloud failover triggers in under one minute if any major cloud region experiences connectivity failure.</p>
+            <div class="sla-card-pill">
+              <span class="live-pulse-dot" style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+              <span>Zero Human Intervention</span>
+            </div>
+          </div>
+
+          <div class="sla-card">
+            <div class="sla-card-num">15min</div>
+            <h3 class="sla-card-title">Dedicated Architect Escalation</h3>
+            <p class="sla-card-desc">Direct bridge to Stackly Principal Systems Engineers on Slack and Teams. 24/7/365 follow-the-sun emergency dispatch.</p>
+            <div class="sla-card-pill">
+              <span class="live-pulse-dot" style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+              <span>100% Senior Engineer Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW RELEVANT SECTION 2: Frictionless 4-Step Production Migration Workflow -->
+    <section id="migrationWorkflow" class="migration-section">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label"><span class="dot"></span> <span>Migration Framework</span></div>
+          <h2 class="section-title" id="migrationTitle">Zero-downtime migration in four autonomous steps.</h2>
+          <p class="section-subtitle center-block" id="migrationSubtitle">Modernize legacy clusters and fragmented Terraform configs with Stackly’s agentless discovery and automated synthesis pipeline.</p>
+        </div>
+
+        <div class="migration-grid" id="migrationGrid">
+          <div class="migration-card">
+            <span class="migration-step-badge">Phase 01</span>
+            <h3 class="migration-card-title">Agentless eBPF Discovery</h3>
+            <p class="migration-card-desc">Kernel-level probes automatically trace microservice dependencies, ingress routing, and compute costs without modifying source code.</p>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="migration-tech-pill">eBPF Kernel</span>
+              <span class="migration-tech-pill">Zero Code Changes</span>
+            </div>
+          </div>
+
+          <div class="migration-card">
+            <span class="migration-step-badge">Phase 02</span>
+            <h3 class="migration-card-title">Automated IaC Synthesizer</h3>
+            <p class="migration-card-desc">Stackly’s synthesis engine analyzes your topology and outputs production-ready Terraform modules and Helm templates in one click.</p>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="migration-tech-pill">Terraform 1.8+</span>
+              <span class="migration-tech-pill">Helm 3</span>
+            </div>
+          </div>
+
+          <div class="migration-card">
+            <span class="migration-step-badge">Phase 03</span>
+            <h3 class="migration-card-title">Dark Canary Shadowing</h3>
+            <p class="migration-card-desc">Live production requests are safely duplicated to parallel Stackly clusters, verifying error budgets, throughput, and sub-ms latency.</p>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="migration-tech-pill">Shadow Ingress</span>
+              <span class="migration-tech-pill">Risk-Free Testing</span>
+            </div>
+          </div>
+
+          <div class="migration-card">
+            <span class="migration-step-badge">Phase 04</span>
+            <h3 class="migration-card-title">Instant DNS & BGP Cutover</h3>
+            <p class="migration-card-desc">Global BGP Anycast routing transitions live traffic smoothly with instant automated rollback guardrails in case of unexpected cascades.</p>
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <span class="migration-tech-pill">Anycast BGP</span>
+              <span class="migration-tech-pill">Auto-Rollback Guard</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="404.html" class="btn btn-primary btn-lg" style="box-shadow: 0 10px 25px rgba(140, 79, 39, 0.25);">
+            Explore Migration Framework & Whitepaper &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Service Tiers Section -->
+    <section id="pricing" style="padding: 6.5rem 0; background: #ffffff; border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="text-center center-block">
+          <div class="section-label"><span class="dot"></span> <span>Transparent Plans</span></div>
+          <h2 class="section-title" id="pricingTitle">Simple, predictable pricing for startups.</h2>
+          <p class="section-subtitle center-block" id="pricingSubtitle" style="margin-bottom: 3.5rem;">No hidden usage traps. Transparent flat billing that scales with your growth.</p>
+        </div>
+
+        <div class="pricing-grid" id="pricingGrid">
+          <!-- Tier 1 (Natural Index 0) -->
+          <div class="pricing-card" id="pricingCardStarter" data-pricing-index="0">
+            <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Starter Scale</div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem;">For pre-seed to seed stage startups shipping their MVP.</p>
+            <div style="font-size: 2.75rem; font-weight: 800; color: #000000; font-family: var(--font-heading); margin-bottom: 1.5rem;">
+              $299 <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">/ month</span>
+            </div>
+            <ul style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; margin-bottom: 2rem; flex-grow: 1;">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Up to 32 Kubernetes Pods</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>2 Multi-cloud regions</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Sub-second APM telemetry</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Single Founder role view</li>
+            </ul>
+            <a href="404.html" class="btn btn-secondary pricing-action-btn" style="width: 100%;">Get Started</a>
+          </div>
+
+          <!-- Tier 2 (Natural Index 1: Highlighted) -->
+          <div class="pricing-card" id="pricingCardUnicorn" data-pricing-index="1" style="border: 2px solid #8C4F27; box-shadow: 0 16px 40px rgba(140, 79, 39, 0.12);">
+            <div style="position: absolute; top: -14px; right: 2rem; background: #8C4F27; color: #ffffff; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); text-transform: uppercase;">
+              Most Popular
+            </div>
+            <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Growth Unicorn</div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem;">For Series A & B scaleups needing high-concurrency reliability.</p>
+            <div style="font-size: 2.75rem; font-weight: 800; color: #000000; font-family: var(--font-heading); margin-bottom: 1.5rem;">
+              $899 <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">/ month</span>
+            </div>
+            <ul style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; margin-bottom: 2rem; flex-grow: 1;">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Up to 256 Kubernetes Pods</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>8 Global edge regions</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Both Founder & DevOps Dashboards</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Automated blue/green rollbacks</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>99.999% contractual SLA</li>
+            </ul>
+            <a href="404.html" class="btn btn-primary pricing-action-btn" style="width: 100%;">Start 14-Day Free Trial</a>
+          </div>
+
+          <!-- Tier 3 (Natural Index 2) -->
+          <div class="pricing-card" id="pricingCardEnterprise" data-pricing-index="2">
+            <div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Enterprise Dedicated</div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem;">For high-volume fintech, healthcare, and enterprise software.</p>
+            <div style="font-size: 2.75rem; font-weight: 800; color: #000000; font-family: var(--font-heading); margin-bottom: 1.5rem;">
+              Custom
+            </div>
+            <ul style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.9rem; margin-bottom: 2rem; flex-grow: 1;">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Unlimited cloud pods & clusters</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Dedicated private VPC peering</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Custom SOC2 & HIPAA audits</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>15-minute emergency SLA</li>
+            </ul>
+            <a href="404.html" class="btn btn-secondary pricing-action-btn" style="width: 100%;">Contact Enterprise Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-banner-box" id="servicesCtaBox">
+          <h2 class="cta-banner-title" id="servicesCtaTitle">Need custom architectural guidance?</h2>
+          <p class="cta-banner-desc" id="servicesCtaDesc">Book a 30-minute infrastructure review session with a Stackly Principal Systems Architect.</p>
+          <a href="404.html" class="btn btn-secondary btn-lg" style="background: #ffffff; color: #000000; border-color: #ffffff;">Schedule Architecture Call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly Home">
+            <img src="assets/stacklylogo_18.webp" alt="Stackly Logo" class="footer-logo">
+          </a>
+          <p class="footer-caption">
+            The next-generation cloud infrastructure and growth intelligence platform for high-velocity startups.
+          </p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="X (Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="404.html" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="blog.html" class="footer-link">Blog & Insights</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="404.html" class="footer-link">Leadership</a></li>
+            <li><a href="404.html" class="footer-link">Careers</a></li>
+            <li><a href="404.html" class="footer-link">Headquarters</a></li>
+            <li><a href="404.html" class="footer-link">SOC2 Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Stackly Address & Office Details (Replaced Stay Updated) -->
+        <div>
+          <h4 class="footer-col-title">Stackly Headquarters</h4>
+          <div class="footer-address-block">
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>San Francisco HQ</strong><br>
+                500 Howard Street, Suite 400<br>
+                San Francisco, CA 94105
+              </div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div>founders@stackly.io &middot; contact@stackly.io</div>
+            </div>
+            <div class="footer-address-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div>+1 (415) 890-4820 (24/7 SLA)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Inc. All rights reserved.</div>
+        <div class="system-status-badge">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981;"></span>
+          <span>All Global Systems Operational</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
