@@ -2150,12 +2150,10 @@ function initWhitepapersAnimation() {
       if (entry.isIntersecting) {
         section.classList.add('is-in-view');
         grid.classList.add('is-revealed');
-      } else {
-        section.classList.remove('is-in-view');
-        grid.classList.remove('is-revealed');
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
 
   observer.observe(section);
 }

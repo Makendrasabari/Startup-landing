@@ -939,6 +939,64 @@ html, body.dashboard-layout {
   color: #000000;
 }
 
+/* High-Value Accounts Table: Full visibility without horizontal scroll */
+.high-value-accounts-table,
+.charts-grid-row.equal .modern-table {
+  min-width: 100% !important;
+  width: 100% !important;
+  table-layout: auto !important;
+}
+
+.high-value-accounts-table th,
+.charts-grid-row.equal .modern-table th {
+  padding: 0.72rem 0.85rem !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.05em !important;
+  background: #f8fafc !important;
+  color: #475569 !important;
+  white-space: nowrap !important;
+  border-bottom: 1.5px solid #e2e8f0 !important;
+}
+
+.high-value-accounts-table td,
+.charts-grid-row.equal .modern-table td {
+  padding: 0.85rem 0.85rem !important;
+  font-size: 0.84rem !important;
+  white-space: normal !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  line-height: 1.35 !important;
+}
+
+.high-value-accounts-table tr:hover td,
+.charts-grid-row.equal .modern-table tr:hover td {
+  background: #fafaf9 !important;
+}
+
+.high-value-accounts-table td:nth-child(1),
+.charts-grid-row.equal .modern-table td:nth-child(1) {
+  font-weight: 700;
+  color: #090d16;
+}
+
+.high-value-accounts-table td:nth-child(3),
+.charts-grid-row.equal .modern-table td:nth-child(3) {
+  font-weight: 700;
+  color: #8C4F27;
+}
+
+.high-value-accounts-table th:last-child,
+.high-value-accounts-table td:last-child,
+.charts-grid-row.equal .modern-table th:last-child,
+.charts-grid-row.equal .modern-table td:last-child {
+  text-align: right !important;
+}
+
+/* Adjust card padding inside equal grid rows for maximum horizontal content space */
+.charts-grid-row.equal .data-panel-card {
+  padding: 1.5rem 1.25rem !important;
+}
+
 .table-status-pill {
   display: inline-flex;
   align-items: center;

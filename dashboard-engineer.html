@@ -9,13 +9,13 @@
 
   <!-- Core Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css?v=5.3">
+  <link rel="stylesheet" href="css/dashboard.css?v=5.4">
 
   <!-- Chart.js for High-Res Responsive Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
   <!-- Dashboard Controller -->
-  <script src="js/dashboard.js?v=5.3" defer></script>
+  <script src="js/dashboard.js?v=5.4" defer></script>
 </head>
 <body class="dashboard-layout dashboard-engineer">
 
@@ -312,49 +312,85 @@
             </div>
           </div>
 
-          <!-- Deployments Table -->
+          <!-- High-Value Accounts Table -->
           <div class="data-panel-card" style="margin-bottom: 0;">
             <div class="data-panel-header">
               <div class="chart-panel-title-wrap">
-                <h3>Recent Git Deployments</h3>
-                <p>Production cluster rollouts and commit statuses</p>
+                <h3>High-Value Accounts</h3>
+                <p>Enterprise customer accounts, ARR & dedicated cluster telemetry</p>
               </div>
-              <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export Log</button>
+              <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export</button>
             </div>
             <div class="data-table-responsive">
-              <table class="modern-table">
+              <table class="modern-table high-value-accounts-table">
                 <thead>
                   <tr>
-                    <th>Commit / SHA</th>
-                    <th>Branch</th>
-                    <th>Duration</th>
+                    <th>Company</th>
+                    <th>Plan Tier</th>
+                    <th>ARR / SLA</th>
                     <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><code>9b4f2c1</code> feat: edge cache</td>
-                    <td>main</td>
-                    <td>1m 12s</td>
-                    <td><span class="table-status-pill success">Deployed</span></td>
+                    <td>
+                      <strong>Stripe Inc.</strong>
+                      <div style="font-size: 0.72rem; color: #64748b; font-family: var(--font-mono); margin-top: 2px;">aws-us-east-1</div>
+                    </td>
+                    <td>Enterprise Custom</td>
+                    <td>
+                      <strong>$120,000</strong>
+                      <div style="font-size: 0.72rem; color: #10b981; font-weight: 600; margin-top: 2px;">99.998% SLA</div>
+                    </td>
+                    <td><span class="table-status-pill success">Active</span></td>
                   </tr>
                   <tr>
-                    <td><code>a71d80e</code> fix: rate limiter</td>
-                    <td>main</td>
-                    <td>48s</td>
-                    <td><span class="table-status-pill success">Deployed</span></td>
+                    <td>
+                      <strong>HyperScale Tech</strong>
+                      <div style="font-size: 0.72rem; color: #64748b; font-family: var(--font-mono); margin-top: 2px;">gcp-us-central1</div>
+                    </td>
+                    <td>Enterprise Dedicated</td>
+                    <td>
+                      <strong>$84,000</strong>
+                      <div style="font-size: 0.72rem; color: #10b981; font-weight: 600; margin-top: 2px;">99.996% SLA</div>
+                    </td>
+                    <td><span class="table-status-pill success">Active</span></td>
                   </tr>
                   <tr>
-                    <td><code>3c90e21</code> chore: update deps</td>
-                    <td>staging</td>
-                    <td>1m 34s</td>
-                    <td><span class="table-status-pill info">Testing</span></td>
+                    <td>
+                      <strong>Aura Cloud</strong>
+                      <div style="font-size: 0.72rem; color: #64748b; font-family: var(--font-mono); margin-top: 2px;">aws-ap-se-1</div>
+                    </td>
+                    <td>Enterprise</td>
+                    <td>
+                      <strong>$64,000</strong>
+                      <div style="font-size: 0.72rem; color: #2563eb; font-weight: 600; margin-top: 2px;">99.990% SLA</div>
+                    </td>
+                    <td><span class="table-status-pill info">Upgrading</span></td>
                   </tr>
                   <tr>
-                    <td><code>f28b19a</code> perf: gql dataloader</td>
-                    <td>main</td>
-                    <td>52s</td>
-                    <td><span class="table-status-pill success">Deployed</span></td>
+                    <td>
+                      <strong>NexaAI Labs</strong>
+                      <div style="font-size: 0.72rem; color: #64748b; font-family: var(--font-mono); margin-top: 2px;">gcp-europe-w1</div>
+                    </td>
+                    <td>Scale Pro</td>
+                    <td>
+                      <strong>$48,000</strong>
+                      <div style="font-size: 0.72rem; color: #10b981; font-weight: 600; margin-top: 2px;">99.995% SLA</div>
+                    </td>
+                    <td><span class="table-status-pill success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Vertex Payments</strong>
+                      <div style="font-size: 0.72rem; color: #64748b; font-family: var(--font-mono); margin-top: 2px;">aws-us-west-2</div>
+                    </td>
+                    <td>Growth Tier</td>
+                    <td>
+                      <strong>$24,000</strong>
+                      <div style="font-size: 0.72rem; color: #10b981; font-weight: 600; margin-top: 2px;">99.999% SLA</div>
+                    </td>
+                    <td><span class="table-status-pill success">Active</span></td>
                   </tr>
                 </tbody>
               </table>

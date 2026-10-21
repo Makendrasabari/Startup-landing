@@ -9,13 +9,13 @@
 
   <!-- Core Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css?v=5.3">
+  <link rel="stylesheet" href="css/dashboard.css?v=5.4">
 
   <!-- Chart.js for High-Res Responsive Visualizations -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
   <!-- Dashboard Controller -->
-  <script src="js/dashboard.js?v=5.3" defer></script>
+  <script src="js/dashboard.js?v=5.4" defer></script>
 </head>
 <body class="dashboard-layout dashboard-founder">
 
@@ -317,7 +317,7 @@
               <button class="btn btn-secondary btn-sm" onclick="window.exportDashboardData('csv')">Export</button>
             </div>
             <div class="data-table-responsive">
-              <table class="modern-table">
+              <table class="modern-table high-value-accounts-table">
                 <thead>
                   <tr>
                     <th>Company</th>
@@ -330,26 +330,32 @@
                   <tr>
                     <td><strong>Stripe Inc.</strong></td>
                     <td>Enterprise Custom</td>
-                    <td>$120,000</td>
+                    <td><strong>$120,000</strong></td>
                     <td><span class="table-status-pill success">Active</span></td>
                   </tr>
                   <tr>
-                    <td><strong>NexaAI Labs</strong></td>
-                    <td>Scale Pro</td>
-                    <td>$48,000</td>
-                    <td><span class="table-status-pill success">Active</span></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Vertex Payments</strong></td>
-                    <td>Growth Tier</td>
-                    <td>$24,000</td>
+                    <td><strong>HyperScale Tech</strong></td>
+                    <td>Enterprise Dedicated</td>
+                    <td><strong>$84,000</strong></td>
                     <td><span class="table-status-pill success">Active</span></td>
                   </tr>
                   <tr>
                     <td><strong>Aura Cloud</strong></td>
                     <td>Enterprise</td>
-                    <td>$64,000</td>
+                    <td><strong>$64,000</strong></td>
                     <td><span class="table-status-pill info">Upgrading</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>NexaAI Labs</strong></td>
+                    <td>Scale Pro</td>
+                    <td><strong>$48,000</strong></td>
+                    <td><span class="table-status-pill success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vertex Payments</strong></td>
+                    <td>Growth Tier</td>
+                    <td><strong>$24,000</strong></td>
+                    <td><span class="table-status-pill success">Active</span></td>
                   </tr>
                 </tbody>
               </table>
