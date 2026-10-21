@@ -5,7 +5,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initLenisScroll();
+  initSmoothScroll();
   initPreloader();
   initStickyHeader();
   initMobileMenu();
@@ -31,34 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   0. LENIS SMOOTH SCROLLING ENGINE
-   Ultra-smooth inertial 60fps scrolling with anchor targeting & drawer management
+   0. NATIVE HARDWARE-ACCELERATED SMOOTH SCROLLING
+   Fluid 60/120fps native scrolling with anchor targeting & header compensation
    ========================================================================== */
-function initLenisScroll() {
-  if (typeof Lenis === 'undefined') {
-    return;
-  }
+function initSmoothScroll() {
+  // Ensure native smooth scrolling is enabled on root document
+  document.documentElement.style.scrollBehavior = 'smooth';
 
-  const lenis = new Lenis({
-    duration: 1.15,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: 1.0,
-    touchMultiplier: 1.5,
-    smoothTouch: false // Native touch momentum on mobile for 0 latency & 0 jank
-  });
-
-  window.lenis = lenis;
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
-  // Smooth anchor link scrolling
+  // Smooth anchor link scrolling with fixed header offset compensation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
@@ -66,49 +46,29 @@ function initLenisScroll() {
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          lenis.scrollTo(target, { offset: -70 });
+          const headerOffset = 70;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }
     });
   });
 
-  // Back to top action
+  // Back to top smooth button action
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      lenis.scrollTo(0, { duration: 1.1 });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   }
-
-  // Manage drawer lock when mobile navigation is opened
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const mobileClose = document.getElementById('mobileNavClose') || document.querySelector('.mobile-nav-close');
-  const mobileNav = document.querySelector('.mobile-nav');
-
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      setTimeout(() => {
-        if (mobileNav && mobileNav.classList.contains('open')) {
-          lenis.stop();
-        } else {
-          lenis.start();
-        }
-      }, 60);
-    });
-  }
-
-  if (mobileClose) {
-    mobileClose.addEventListener('click', () => {
-      lenis.start();
-    });
-  }
-
-  document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta').forEach(link => {
-    link.addEventListener('click', () => {
-      lenis.start();
-    });
-  });
 }
 
 /* ==========================================================================
@@ -826,33 +786,10 @@ function initNewsletterForm() {
 }
 
 /* ==========================================================================
-   9. FLOATING BRAND HUB & BACK TO TOP
+   9. FLOATING BRAND HUB (REMOVED)
    ========================================================================== */
 function initFloatingHub() {
-  const hubBtn = document.querySelector('.floating-hub-btn');
-  const hubMenu = document.querySelector('.floating-hub-menu');
-  const backToTopBtn = document.getElementById('backToTopBtn');
-
-  if (hubBtn && hubMenu) {
-    hubBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      hubMenu.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!hubMenu.contains(e.target) && !hubBtn.contains(e.target)) {
-        hubMenu.classList.remove('active');
-      }
-    });
-  }
-
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (hubMenu) hubMenu.classList.remove('active');
-    });
-  }
+  // Removed per design requirements
 }
 
 /* ==========================================================================
@@ -1688,6 +1625,7 @@ function initCardsShuffleAnimation() {
 
   let isShuffling = false;
   let autoShuffleInterval = null;
+  let initialShuffleTimer = null;
 
   function performShuffle(isManual = false) {
     if (isShuffling) return;
@@ -1769,8 +1707,9 @@ function initCardsShuffleAnimation() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Initial shuffle after entering view
-          setTimeout(() => {
+          // Debounced initial shuffle after entering view
+          if (initialShuffleTimer) clearTimeout(initialShuffleTimer);
+          initialShuffleTimer = setTimeout(() => {
             performShuffle(false);
           }, 800);
 
@@ -1781,7 +1720,11 @@ function initCardsShuffleAnimation() {
             }, 6500);
           }
         } else {
-          // Pause when outside viewport to conserve resources
+          // Pause when outside viewport to conserve resources and avoid queue pileup
+          if (initialShuffleTimer) {
+            clearTimeout(initialShuffleTimer);
+            initialShuffleTimer = null;
+          }
           if (autoShuffleInterval) {
             clearInterval(autoShuffleInterval);
             autoShuffleInterval = null;
@@ -1812,6 +1755,7 @@ function initLocationsShuffleAnimation() {
 
   let isShuffling = false;
   let autoShuffleInterval = null;
+  let initialShuffleTimer = null;
 
   function performShuffle() {
     if (isShuffling) return;
@@ -1886,8 +1830,9 @@ function initLocationsShuffleAnimation() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Initial shuffle after entering view
-          setTimeout(() => {
+          // Debounced initial shuffle after entering view
+          if (initialShuffleTimer) clearTimeout(initialShuffleTimer);
+          initialShuffleTimer = setTimeout(() => {
             performShuffle();
           }, 850);
 
@@ -1898,6 +1843,10 @@ function initLocationsShuffleAnimation() {
             }, 7500);
           }
         } else {
+          if (initialShuffleTimer) {
+            clearTimeout(initialShuffleTimer);
+            initialShuffleTimer = null;
+          }
           if (autoShuffleInterval) {
             clearInterval(autoShuffleInterval);
             autoShuffleInterval = null;
@@ -1929,6 +1878,7 @@ function initPricingShuffleAnimation() {
 
   let isShuffling = false;
   let autoShuffleInterval = null;
+  let initialShuffleTimer = null;
 
   function performShuffle() {
     if (isShuffling) return;
@@ -2003,8 +1953,9 @@ function initPricingShuffleAnimation() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Initial reverse-and-arrange shuffle after entering view
-          setTimeout(() => {
+          // Debounced initial reverse-and-arrange shuffle after entering view
+          if (initialShuffleTimer) clearTimeout(initialShuffleTimer);
+          initialShuffleTimer = setTimeout(() => {
             performShuffle();
           }, 850);
 
@@ -2015,6 +1966,10 @@ function initPricingShuffleAnimation() {
             }, 7500);
           }
         } else {
+          if (initialShuffleTimer) {
+            clearTimeout(initialShuffleTimer);
+            initialShuffleTimer = null;
+          }
           if (autoShuffleInterval) {
             clearInterval(autoShuffleInterval);
             autoShuffleInterval = null;
@@ -2065,6 +2020,7 @@ function initBlogCardsShuffleAnimation() {
 
   let isShuffling = false;
   let autoShuffleInterval = null;
+  let initialShuffleTimer = null;
 
   function performShuffle(isManual = false) {
     if (isShuffling) return;
@@ -2146,7 +2102,9 @@ function initBlogCardsShuffleAnimation() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
+          // Debounced initial shuffle after entering view
+          if (initialShuffleTimer) clearTimeout(initialShuffleTimer);
+          initialShuffleTimer = setTimeout(() => {
             performShuffle(false);
           }, 800);
 
@@ -2156,6 +2114,10 @@ function initBlogCardsShuffleAnimation() {
             }, 8500);
           }
         } else {
+          if (initialShuffleTimer) {
+            clearTimeout(initialShuffleTimer);
+            initialShuffleTimer = null;
+          }
           if (autoShuffleInterval) {
             clearInterval(autoShuffleInterval);
             autoShuffleInterval = null;
